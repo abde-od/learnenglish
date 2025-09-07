@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Past Simple! - Interactive Grammar Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#ffffff',
+                        'foreground': '#475569',
+                        'card': '#fff7ed',
+                        'primary': '#ea580c',
+                        'secondary': '#fb923c',
+                        'accent': '#fb923c',
+                        'muted': '#fff7ed',
+                        'border': '#d1d5db',
+                        'past': '#ea580c',
+                        'past-light': '#fff7ed',
+                        'past-foreground': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'heading': ['Inter', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-past-light to-white text-foreground font-body">
+    <!-- Header Section -->
+    <header class="bg-past-light py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-heading font-bold text-past mb-4">Learn Past Simple! 📚</h1>
+            <p class="text-xl text-foreground max-w-2xl mx-auto">
+                Master the past simple tense and learn about actions that happened in the past!
+            </p>
+        </div>
+    </header>
+
+    <!-- Grammar Rules Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-past text-center mb-6">
+                    How to Use Past Simple ⏮️
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="p-6 bg-past-light rounded-xl">
+                        <h3 class="font-bold text-past mb-3">✅ Regular Verbs</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Add -ed:</strong> work → worked</div>
+                            <div class="text-blue-600">I <strong>worked</strong> yesterday.</div>
+                            <div><strong>Add -d:</strong> live → lived</div>
+                            <div class="text-blue-600">She <strong>lived</strong> in Paris.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-past-light rounded-xl">
+                        <h3 class="font-bold text-past mb-3">🔄 Irregular Verbs</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>go → went:</strong> They went home.</div>
+                            <div><strong>eat → ate:</strong> We ate pizza.</div>
+                            <div><strong>see → saw:</strong> I saw a movie.</div>
+                            <div><strong>have → had:</strong> He had lunch.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-past-light rounded-xl">
+                        <h3 class="font-bold text-past mb-3">❌ Negative Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>didn't + base verb</strong></div>
+                            <div class="text-blue-600">I <strong>didn't work</strong> yesterday.</div>
+                            <div class="text-blue-600">She <strong>didn't go</strong> to school.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-past-light rounded-xl">
+                        <h3 class="font-bold text-past mb-3">❓ Question Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Did + subject + base verb?</strong></div>
+                            <div class="text-blue-600"><strong>Did</strong> you work yesterday?</div>
+                            <div class="text-blue-600"><strong>Did</strong> she go to school?</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Irregular Verbs Chart -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-past text-center mb-6">
+                    Common Irregular Verbs 📝
+                </h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">be → was/were</div>
+                        <div class="text-sm text-gray-600">I was happy</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">go → went</div>
+                        <div class="text-sm text-gray-600">I went home</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">eat → ate</div>
+                        <div class="text-sm text-gray-600">I ate lunch</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">see → saw</div>
+                        <div class="text-sm text-gray-600">I saw a bird</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">have → had</div>
+                        <div class="text-sm text-gray-600">I had fun</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">come → came</div>
+                        <div class="text-sm text-gray-600">She came late</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">take → took</div>
+                        <div class="text-sm text-gray-600">He took a photo</div>
+                    </div>
+                    <div class="text-center p-3 bg-past-light rounded-lg">
+                        <div class="font-bold text-past">make → made</div>
+                        <div class="text-sm text-gray-600">We made cake</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quiz -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-past text-center mb-6">
+                    Past Simple Quiz! 🎯
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-past-light px-4 py-2 rounded-full">
+                            <span class="text-past">🏆</span>
+                            <span class="font-semibold">Score: <span id="score">0</span>/<span id="totalQuestions">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="quizContainer" class="mb-6">
+                        <div class="text-xl font-semibold text-gray-800 mb-4" id="questionText">
+                            Choose the correct past simple form:
+                        </div>
+                        
+                        <div class="text-lg mb-6 p-4 bg-gray-100 rounded-lg" id="sentenceText">
+                            Loading question...
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6" id="optionsContainer">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <button
+                            id="nextQuestionBtn"
+                            class="mt-4 bg-past text-past-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Next Question ➡️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Time Expressions -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-past text-center mb-6">
+                    Past Time Expressions ⏰
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-3xl mb-3">📅</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Specific Time</h3>
+                        <div class="text-sm space-y-1">
+                            <div>yesterday</div>
+                            <div>last week/month/year</div>
+                            <div>two days ago</div>
+                            <div>in 2020</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center p-4 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-3xl mb-3">🕐</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Time Periods</h3>
+                        <div class="text-sm space-y-1">
+                            <div>this morning</div>
+                            <div>last night</div>
+                            <div>when I was young</div>
+                            <div>at 3 o'clock</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center p-4 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-3xl mb-3">📍</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Events</h3>
+                        <div class="text-sm space-y-1">
+                            <div>after school</div>
+                            <div>before dinner</div>
+                            <div>during the movie</div>
+                            <div>on my birthday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Example Stories -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-past text-center mb-6">
+                    Story Examples 📖
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-past-light rounded-xl">
+                        <h3 class="font-bold text-past text-lg mb-3">Yesterday's Adventure</h3>
+                        <div class="space-y-2 text-sm">
+                            <p>Yesterday, I <strong>woke up</strong> early.</p>
+                            <p>I <strong>ate</strong> breakfast with my family.</p>
+                            <p>Then we <strong>went</strong> to the park.</p>
+                            <p>We <strong>played</strong> games and <strong>had</strong> fun!</p>
+                            <p>In the evening, I <strong>watched</strong> a movie.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-past-light rounded-xl">
+                        <h3 class="font-bold text-past text-lg mb-3">Last Weekend</h3>
+                        <div class="space-y-2 text-sm">
+                            <p>Last Saturday, it <strong>was</strong> sunny.</p>
+                            <p>My friends <strong>came</strong> to visit me.</p>
+                            <p>We <strong>made</strong> sandwiches for lunch.</p>
+                            <p>After that, we <strong>took</strong> photos.</p>
+                            <p>We <strong>didn't want</strong> the day to end!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Tips -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-heading font-bold text-past mb-6">
+                    Grammar Tips! 💡
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📚</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Learn Irregular Verbs</h3>
+                        <p class="text-gray-600">
+                            Practice common irregular verbs - they don't follow the -ed pattern!
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">⏰</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Finished Actions</h3>
+                        <p class="text-gray-600">
+                            Use past simple for actions that started and finished in the past.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🔍</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Questions & Negatives</h3>
+                        <p class="text-gray-600">
+                            Remember to use "did" + base verb for questions and negatives.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-past-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📖</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Tell Stories</h3>
+                        <p class="text-gray-600">
+                            Past simple is perfect for telling stories about what happened!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-past-light py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-past font-semibold">Keep practicing and master Past Simple! 📚✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz data
+        const quizQuestions = [
+            {
+                sentence: "I _____ to the store yesterday.",
+                options: ["go", "went", "going", "goes"],
+                correct: 1,
+                explanation: "'went' is the past simple form of 'go'"
+            },
+            {
+                sentence: "She _____ her homework last night.",
+                options: ["do", "does", "did", "doing"],
+                correct: 2,
+                explanation: "'did' is the past simple form of 'do'"
+            },
+            {
+                sentence: "They _____ pizza for dinner.",
+                options: ["eat", "ate", "eating", "eats"],
+                correct: 1,
+                explanation: "'ate' is the past simple form of 'eat'"
+            },
+            {
+                sentence: "We _____ a great movie last week.",
+                options: ["see", "saw", "seeing", "sees"],
+                correct: 1,
+                explanation: "'saw' is the past simple form of 'see'"
+            },
+            {
+                sentence: "He _____ his keys at home.",
+                options: ["leave", "left", "leaving", "leaves"],
+                correct: 1,
+                explanation: "'left' is the past simple form of 'leave'"
+            },
+            {
+                sentence: "The children _____ in the park.",
+                options: ["play", "played", "playing", "plays"],
+                correct: 1,
+                explanation: "'played' is the past simple form of 'play' (regular verb + ed)"
+            },
+            {
+                sentence: "My sister _____ a new book yesterday.",
+                options: ["buy", "bought", "buying", "buys"],
+                correct: 1,
+                explanation: "'bought' is the past simple form of 'buy'"
+            },
+            {
+                sentence: "We _____ to music all evening.",
+                options: ["listen", "listened", "listening", "listens"],
+                correct: 1,
+                explanation: "'listened' is the past simple form of 'listen' (regular verb + ed)"
+            },
+            {
+                sentence: "She _____ very happy about the news.",
+                options: ["is", "was", "being", "are"],
+                correct: 1,
+                explanation: "'was' is the past simple form of 'is/am' for singular subjects"
+            },
+            {
+                sentence: "I _____ my friend at the party.",
+                options: ["meet", "met", "meeting", "meets"],
+                correct: 1,
+                explanation: "'met' is the past simple form of 'meet'"
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let totalQuestions = 0;
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= quizQuestions.length) {
+                currentQuestionIndex = 0; // Reset to beginning
+            }
+            
+            const question = quizQuestions[currentQuestionIndex];
+            document.getElementById('sentenceText').textContent = question.sentence;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-past hover:bg-past-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('feedback').classList.add('hidden');
+        }
+
+        function checkAnswer(selectedIndex) {
+            const question = quizQuestions[currentQuestionIndex];
+            totalQuestions++;
+            document.getElementById('totalQuestions').textContent = totalQuestions;
+            
+            const feedbackEl = document.getElementById('feedback');
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                score++;
+                document.getElementById('score').textContent = score;
+                feedbackEl.textContent = `🎉 Correct! ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${question.options[question.correct]}". ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            // Disable option buttons
+            const buttons = document.querySelectorAll('#optionsContainer button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        // Event listeners
+        document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
+
+        // Initialize
+        loadQuestion();
+    </script>
+</body>
+</html>

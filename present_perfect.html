@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Present Perfect! - Interactive Grammar Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#ffffff',
+                        'foreground': '#475569',
+                        'card': '#fce7f3',
+                        'primary': '#ec4899',
+                        'secondary': '#f472b6',
+                        'accent': '#f472b6',
+                        'muted': '#fce7f3',
+                        'border': '#d1d5db',
+                        'perfect': '#ec4899',
+                        'perfect-light': '#fce7f3',
+                        'perfect-foreground': '#1f2937'
+                    },
+                    fontFamily: {
+                        'heading': ['Inter', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-perfect-light to-white text-foreground font-body">
+    <!-- Header Section -->
+    <header class="bg-perfect-light py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-heading font-bold text-perfect mb-4">Learn Present Perfect! ✨</h1>
+            <p class="text-xl text-foreground max-w-2xl mx-auto">
+                Master the present perfect tense and learn to connect past actions with the present!
+            </p>
+        </div>
+    </header>
+
+    <!-- Grammar Rules Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-perfect text-center mb-6">
+                    How to Use Present Perfect 🔗
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="p-6 bg-perfect-light rounded-xl">
+                        <h3 class="font-bold text-perfect mb-3">✅ Positive Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>have/has + past participle</strong></div>
+                            <div class="text-blue-600">I <strong>have worked</strong> here for 5 years.</div>
+                            <div class="text-blue-600">She <strong>has visited</strong> Paris.</div>
+                            <div class="text-blue-600">They <strong>have finished</strong> homework.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-perfect-light rounded-xl">
+                        <h3 class="font-bold text-perfect mb-3">❌ Negative Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>have/has + not + past participle</strong></div>
+                            <div class="text-blue-600">I <strong>haven't worked</strong> today.</div>
+                            <div class="text-blue-6 0">She <strong>hasn't visited</strong> Paris.</div>
+                            <div class="text-blue-600">They <strong>haven't finished</strong>.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-perfect-light rounded-xl">
+                        <h3 class="font-bold text-perfect mb-3">❓ Question Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Have/Has + subject + past participle?</strong></div>
+                            <div class="text-blue-600"><strong>Have</strong> you worked here long?</div>
+                            <div class="text-blue-600"><strong>Has</strong> she visited Paris?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-perfect-light rounded-xl">
+                        <h3 class="font-bold text-perfect mb-3">🎯 When to Use</h3>
+                        <div class="space-y-1 text-sm">
+                            <div>• Life experiences</div>
+                            <div>• Unfinished time periods</div>
+                            <div>• Recent past with present result</div>
+                            <div>• Actions continuing to present</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 1: Multiple Choice Quiz -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-perfect text-center mb-6">
+                    Exercise 1: Multiple Choice Quiz 🎯
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-perfect-light px-4 py-2 rounded-full">
+                            <span class="text-perfect">🏆</span>
+                            <span class="font-semibold">Score: <span id="quiz1-score">0</span>/<span id="quiz1-total">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="quiz1-container" class="mb-6">
+                        <div class="text-xl font-semibold text-gray-800 mb-4" id="quiz1-question">
+                            Choose the correct present perfect form:
+                        </div>
+                        
+                        <div class="text-lg mb-6 p-4 bg-gray-100 rounded-lg" id="quiz1-sentence">
+                            Loading question...
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6" id="quiz1-options">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="quiz1-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <button
+                            id="quiz1-next"
+                            class="mt-4 bg-perfect text-perfect-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Next Question ➡️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 2: Regular vs Irregular Verbs -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-perfect text-center mb-6">
+                    Exercise 2: Past Participle Practice 📚
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-perfect-light px-4 py-2 rounded-full">
+                            <span class="text-perfect">📚</span>
+                            <span class="font-semibold">Progress: <span id="participle-current">1</span>/<span id="participle-total">10</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="participle-container" class="mb-6">
+                        <div class="text-lg font-semibold text-gray-800 mb-4">
+                            What's the past participle of this verb?
+                        </div>
+                        
+                        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                            <div class="text-3xl font-bold text-perfect" id="base-verb">work</div>
+                            <div class="text-sm text-gray-600 mt-2">Base form</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <input
+                                type="text"
+                                id="participle-input"
+                                class="px-4 py-3 border-2 border-gray-300 rounded-lg text-xl font-semibold text-center w-64 focus:border-perfect focus:outline-none"
+                                placeholder="Enter past participle..."
+                            />
+                        </div>
+                        
+                        <div id="participle-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <div class="flex gap-3 justify-center mt-6">
+                            <button
+                                id="check-participle"
+                                class="bg-perfect text-perfect-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                            >
+                                Check Answer ✓
+                            </button>
+                            
+                            <button
+                                id="next-participle"
+                                class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity hidden"
+                            >
+                                Next Verb ➡️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 3: Time Expression Matching -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-perfect text-center mb-6">
+                    Exercise 3: Time Expression Matching 🕒
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-perfect-light px-4 py-2 rounded-full">
+                            <span class="text-perfect">🕒</span>
+                            <span class="font-semibold">Matched: <span id="matching-score">0</span>/<span id="matching-total">6</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-lg font-semibold text-gray-800 mb-6">
+                        Drag time expressions to the correct present perfect sentences!
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Time expressions -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-perfect">Time Expressions</h3>
+                            <div class="space-y-3" id="time-expressions">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Sentences with drop zones -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-perfect">Sentences</h3>
+                            <div class="space-y-3" id="sentence-zones">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3 justify-center mt-8">
+                        <button
+                            id="check-matching"
+                            class="bg-perfect text-perfect-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Check Matches ✓
+                        </button>
+                        
+                        <button
+                            id="reset-matching"
+                            class="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Reset 🔄
+                        </button>
+                    </div>
+                    
+                    <div id="matching-feedback" class="mt-6 p-4 rounded-lg hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 4: Life Experience Stories -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-perfect text-center mb-6">
+                    Exercise 4: Life Experience Questions 💭
+                </h2>
+                
+                <div class="mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-perfect-light px-4 py-2 rounded-full">
+                            <span class="text-perfect">💭</span>
+                            <span class="font-semibold">Answered: <span id="experience-answered">0</span>/<span id="experience-total">8</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-perfect-light p-6 rounded-xl mb-6">
+                        <h3 class="font-bold text-perfect mb-3">Practice Present Perfect Questions</h3>
+                        <p class="text-gray-700">
+                            Answer these questions about life experiences using present perfect. 
+                            Use "Yes, I have..." or "No, I haven't..." in your responses.
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6" id="experience-questions">
+                        <!-- Questions will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="flex gap-3 justify-center mt-8">
+                        <button
+                            id="check-experiences"
+                            class="bg-perfect text-perfect-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Check Answers ✓
+                        </button>
+                        
+                        <button
+                            id="reset-experiences"
+                            class="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Reset All 🔄
+                        </button>
+                    </div>
+                    
+                    <div id="experience-feedback" class="mt-6 p-4 rounded-lg hidden">
+                        <div class="font-bold text-perfect mb-2">Sample Answers:</div>
+                        <div id="sample-answers" class="text-gray-700 space-y-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Tips -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-heading font-bold text-perfect mb-6">
+                    Grammar Tips! 💡
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gradient-to-br from-perfect-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🔗</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Past ↔ Present Connection</h3>
+                        <p class="text-gray-600">
+                            Present perfect connects past actions to the present moment or result.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-perfect-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Life Experiences</h3>
+                        <p class="text-gray-600">
+                            Perfect for talking about experiences: "I have visited Japan."
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-perfect-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">⏰</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Unfinished Time</h3>
+                        <p class="text-gray-600">
+                            Use with "today", "this week", "this year" - time periods not finished.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-perfect-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📚</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Regular vs Irregular</h3>
+                        <p class="text-gray-600">
+                            Regular verbs: work→worked. Irregular: go→gone, see→seen, eat→eaten.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-perfect-light py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-perfect font-semibold">Keep practicing and master Present Perfect! ✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Exercise 1: Multiple Choice Quiz Data
+        const quiz1Questions = [
+            {
+                sentence: "I _____ lived in this city for 10 years.",
+                options: ["have", "has", "had", "am"],
+                correct: 0,
+                explanation: "Use 'have' with 'I' for present perfect"
+            },
+            {
+                sentence: "She _____ never _____ to Australia.",
+                options: ["have/been", "has/been", "had/been", "is/been"],
+                correct: 1,
+                explanation: "Use 'has been' with 'she' for life experiences"
+            },
+            {
+                sentence: "_____ you ever _____ sushi?",
+                options: ["Do/eat", "Did/eat", "Have/eaten", "Are/eating"],
+                correct: 2,
+                explanation: "Use 'Have you eaten' for life experience questions"
+            },
+            {
+                sentence: "They _____ finished their homework yet.",
+                options: ["haven't", "hasn't", "didn't", "don't"],
+                correct: 0,
+                explanation: "Use 'haven't' with 'they' for negative present perfect"
+            },
+            {
+                sentence: "I _____ just _____ from work.",
+                options: ["am/returned", "have/returned", "had/returned", "will/return"],
+                correct: 1,
+                explanation: "Use 'have returned' for recent actions with present results"
+            }
+        ];
+
+        // Exercise 2: Past Participle Data
+        const participleData = [
+            { base: "work", participle: "worked", type: "regular" },
+            { base: "go", participle: "gone", type: "irregular" },
+            { base: "eat", participle: "eaten", type: "irregular" },
+            { base: "study", participle: "studied", type: "regular" },
+            { base: "see", participle: "seen", type: "irregular" },
+            { base: "play", participle: "played", type: "regular" },
+            { base: "take", participle: "taken", type: "irregular" },
+            { base: "live", participle: "lived", type: "regular" },
+            { base: "make", participle: "made", type: "irregular" },
+            { base: "finish", participle: "finished", type: "regular" }
+        ];
+
+        // Exercise 3: Matching Data
+        const matchingData = [
+            {
+                expression: "for three years",
+                sentence: "I have worked here _____ .",
+                correct: "for three years"
+            },
+            {
+                expression: "since 2020",
+                sentence: "She has lived in Paris _____ .",
+                correct: "since 2020"
+            },
+            {
+                expression: "already",
+                sentence: "They have _____ finished their lunch.",
+                correct: "already"
+            },
+            {
+                expression: "never",
+                sentence: "I have _____ been to Japan.",
+                correct: "never"
+            },
+            {
+                expression: "just",
+                sentence: "We have _____ arrived at the airport.",
+                correct: "just"
+            },
+            {
+                expression: "yet",
+                sentence: "Have you done your homework _____ ?",
+                correct: "yet"
+            }
+        ];
+
+        // Exercise 4: Experience Questions Data
+        const experienceQuestions = [
+            {
+                question: "Have you ever been to another country?",
+                sample: "Yes, I have been to France. / No, I haven't been to another country."
+            },
+            {
+                question: "Have you ever eaten exotic food?",
+                sample: "Yes, I have eaten sushi. / No, I haven't eaten exotic food."
+            },
+            {
+                question: "Have you ever met a famous person?",
+                sample: "Yes, I have met a famous actor. / No, I haven't met a famous person."
+            },
+            {
+                question: "Have you ever climbed a mountain?",
+                sample: "Yes, I have climbed Mount Fuji. / No, I haven't climbed a mountain."
+            },
+            {
+                question: "Have you ever learned a musical instrument?",
+                sample: "Yes, I have learned the piano. / No, I haven't learned a musical instrument."
+            },
+            {
+                question: "Have you ever written a story or poem?",
+                sample: "Yes, I have written short stories. / No, I haven't written a story or poem."
+            },
+            {
+                question: "Have you ever seen the ocean?",
+                sample: "Yes, I have seen the Pacific Ocean. / No, I haven't seen the ocean."
+            },
+            {
+                question: "Have you ever ridden a horse?",
+                sample: "Yes, I have ridden a horse at a farm. / No, I haven't ridden a horse."
+            }
+        ];
+
+        // Quiz 1 Logic
+        let quiz1Index = 0;
+        let quiz1Score = 0;
+        let quiz1Total = 0;
+
+        function loadQuiz1Question() {
+            if (quiz1Index >= quiz1Questions.length) {
+                quiz1Index = 0;
+            }
+            
+            const question = quiz1Questions[quiz1Index];
+            document.getElementById('quiz1-sentence').textContent = question.sentence;
+            
+            const optionsContainer = document.getElementById('quiz1-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-perfect hover:bg-perfect-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkQuiz1Answer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('quiz1-feedback').classList.add('hidden');
+        }
+
+        function checkQuiz1Answer(selectedIndex) {
+            const question = quiz1Questions[quiz1Index];
+            quiz1Total++;
+            document.getElementById('quiz1-total').textContent = quiz1Total;
+            
+            const feedbackEl = document.getElementById('quiz1-feedback');
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                quiz1Score++;
+                document.getElementById('quiz1-score').textContent = quiz1Score;
+                feedbackEl.textContent = `🎉 Correct! ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${question.options[question.correct]}". ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            const buttons = document.querySelectorAll('#quiz1-options button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+        }
+
+        function nextQuiz1Question() {
+            quiz1Index++;
+            loadQuiz1Question();
+        }
+
+        // Past Participle Exercise Logic
+        let participleIndex = 0;
+
+        function loadParticipleQuestion() {
+            if (participleIndex >= participleData.length) {
+                participleIndex = 0;
+            }
+            
+            const verb = participleData[participleIndex];
+            document.getElementById('base-verb').textContent = verb.base;
+            document.getElementById('participle-input').value = '';
+            document.getElementById('participle-feedback').classList.add('hidden');
+            document.getElementById('next-participle').classList.add('hidden');
+            document.getElementById('participle-current').textContent = participleIndex + 1;
+        }
+
+        function checkParticipleAnswer() {
+            const userAnswer = document.getElementById('participle-input').value.trim().toLowerCase();
+            const correctAnswer = participleData[participleIndex].participle.toLowerCase();
+            const verbType = participleData[participleIndex].type;
+            const feedbackEl = document.getElementById('participle-feedback');
+            
+            if (userAnswer === correctAnswer) {
+                feedbackEl.textContent = `🎉 Correct! "${participleData[participleIndex].participle}" is the past participle (${verbType} verb).`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+                document.getElementById('next-participle').classList.remove('hidden');
+            } else {
+                feedbackEl.textContent = `❌ Not quite. The past participle is "${participleData[participleIndex].participle}" (${verbType} verb).`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+        }
+
+        function nextParticipleQuestion() {
+            participleIndex++;
+            loadParticipleQuestion();
+        }
+
+        // Matching Exercise Logic
+        function setupMatchingExercise() {
+            const expressionsContainer = document.getElementById('time-expressions');
+            const sentencesContainer = document.getElementById('sentence-zones');
+            
+            // Clear containers
+            expressionsContainer.innerHTML = '';
+            sentencesContainer.innerHTML = '';
+            
+            // Create draggable time expressions
+            matchingData.forEach((item, index) => {
+                const expr = document.createElement('div');
+                expr.className = 'bg-perfect-light p-3 rounded-lg cursor-move border-2 border-perfect text-center font-semibold';
+                expr.textContent = item.expression;
+                expr.draggable = true;
+                expr.dataset.expression = item.expression;
+                expr.id = `expr-${index}`;
+                
+                expr.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', item.expression);
+                });
+                
+                expressionsContainer.appendChild(expr);
+            });
+            
+            // Create drop zones
+            matchingData.forEach((item, index) => {
+                const zone = document.createElement('div');
+                zone.className = 'bg-gray-100 p-4 rounded-lg border-2 border-dashed border-gray-300 min-h-16 flex items-center justify-center';
+                zone.innerHTML = `
+                    <div class="text-center">
+                        <div class="font-medium">${item.sentence}</div>
+                        <div class="drop-zone mt-2 p-2 bg-white rounded border-2 border-dashed border-gray-400 min-h-8 flex items-center justify-center text-gray-500" data-correct="${item.correct}">
+                            Drop here
+                        </div>
+                    </div>
+                `;
+                
+                const dropZone = zone.querySelector('.drop-zone');
+                
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('border-perfect', 'bg-perfect-light');
+                });
+                
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.classList.remove('border-perfect', 'bg-perfect-light');
+                });
+                
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    const droppedText = e.dataTransfer.getData('text/plain');
+                    dropZone.textContent = droppedText;
+                    dropZone.classList.remove('border-perfect', 'bg-perfect-light');
+                    dropZone.classList.add('border-gray-400', 'bg-white');
+                });
+                
+                sentencesContainer.appendChild(zone);
+            });
+        }
+
+        function checkMatchingAnswers() {
+            const dropZones = document.querySelectorAll('.drop-zone');
+            let correct = 0;
+            
+            dropZones.forEach((zone, index) => {
+                const userAnswer = zone.textContent.trim();
+                const correctAnswer = zone.dataset.correct;
+                
+                if (userAnswer === correctAnswer) {
+                    zone.classList.remove('border-red-500', 'bg-red-50');
+                    zone.classList.add('border-green-500', 'bg-green-50');
+                    correct++;
+                } else if (userAnswer !== 'Drop here') {
+                    zone.classList.remove('border-green-500', 'bg-green-50');
+                    zone.classList.add('border-red-500', 'bg-red-50');
+                }
+            });
+            
+            document.getElementById('matching-score').textContent = correct;
+            
+            const feedbackEl = document.getElementById('matching-feedback');
+            if (correct === matchingData.length) {
+                feedbackEl.textContent = '🎉 Perfect! All time expressions are correctly matched!';
+                feedbackEl.className = 'mt-6 p-4 rounded-lg bg-green-100 text-green-800 font-semibold';
+            } else {
+                feedbackEl.textContent = `Good try! You got ${correct} out of ${matchingData.length} correct. Keep practicing!`;
+                feedbackEl.className = 'mt-6 p-4 rounded-lg bg-yellow-100 text-yellow-800 font-semibold';
+            }
+            feedbackEl.classList.remove('hidden');
+        }
+
+        function resetMatchingExercise() {
+            setupMatchingExercise();
+            document.getElementById('matching-score').textContent = '0';
+            document.getElementById('matching-feedback').classList.add('hidden');
+        }
+
+        // Experience Questions Logic
+        function setupExperienceQuestions() {
+            const container = document.getElementById('experience-questions');
+            container.innerHTML = '';
+            
+            experienceQuestions.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-gray-100 p-4 rounded-lg';
+                div.innerHTML = `
+                    <div class="font-semibold text-gray-800 mb-3">${item.question}</div>
+                    <textarea 
+                        class="experience-answer w-full p-3 border rounded-lg resize-none h-20" 
+                        placeholder="Write your answer using present perfect..."
+                        data-sample="${item.sample}"
+                    ></textarea>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function checkExperienceAnswers() {
+            const textareas = document.querySelectorAll('.experience-answer');
+            let answered = 0;
+            let sampleAnswersHtml = '';
+            
+            textareas.forEach((textarea, index) => {
+                if (textarea.value.trim() !== '') {
+                    answered++;
+                    textarea.classList.add('border-green-500', 'bg-green-50');
+                } else {
+                    textarea.classList.add('border-yellow-500', 'bg-yellow-50');
+                }
+                
+                sampleAnswersHtml += `<div><strong>Q${index + 1}:</strong> ${textarea.dataset.sample}</div>`;
+            });
+            
+            document.getElementById('experience-answered').textContent = answered;
+            document.getElementById('sample-answers').innerHTML = sampleAnswersHtml;
+            document.getElementById('experience-feedback').classList.remove('hidden');
+        }
+
+        function resetExperienceQuestions() {
+            const textareas = document.querySelectorAll('.experience-answer');
+            textareas.forEach(textarea => {
+                textarea.value = '';
+                textarea.classList.remove('border-green-500', 'bg-green-50', 'border-yellow-500', 'bg-yellow-50');
+            });
+            document.getElementById('experience-answered').textContent = '0';
+            document.getElementById('experience-feedback').classList.add('hidden');
+        }
+
+        // Event Listeners
+        document.getElementById('quiz1-next').addEventListener('click', nextQuiz1Question);
+        document.getElementById('check-participle').addEventListener('click', checkParticipleAnswer);
+        document.getElementById('next-participle').addEventListener('click', nextParticipleQuestion);
+        document.getElementById('check-matching').addEventListener('click', checkMatchingAnswers);
+        document.getElementById('reset-matching').addEventListener('click', resetMatchingExercise);
+        document.getElementById('check-experiences').addEventListener('click', checkExperienceAnswers);
+        document.getElementById('reset-experiences').addEventListener('click', resetExperienceQuestions);
+
+        // Initialize all exercises
+        loadQuiz1Question();
+        loadParticipleQuestion();
+        setupMatchingExercise();
+        setupExperienceQuestions();
+    </script>
+</body>
+</html>

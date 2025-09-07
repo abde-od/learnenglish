@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Beginner Vocabulary – Common Words at the Airport</title>
+  <meta name="description" content="Beginner-friendly, responsive vocabulary trainer for common words at the airport: flashcards, search, and quiz with pronunciation." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: { colors: { theme: '#06b6d4', 'theme-light': '#ecfeff' }, fontFamily: { sans: ['Inter','sans-serif'] } } } }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-theme-light to-white text-gray-800 font-sans">
+  <header class="bg-theme-light py-10 text-center">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-theme">🛫 Common Words at the Airport</h1>
+      <p class="mt-3 text-lg text-gray-700 max-w-3xl mx-auto">Beginner vocabulary with meanings, examples, pronunciation, and a quick quiz.</p>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8 space-y-8">
+    <section class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+      <div class="flex flex-col md:flex-row md:items-end gap-4 md:gap-6">
+        <label class="w-full md:max-w-sm">
+          <span class="text-sm font-semibold text-gray-700">Search words</span>
+          <input id="search" type="text" class="mt-1 w-full border rounded-lg px-3 py-2" placeholder="Type to filter..." />
+        </label>
+        <div class="flex items-center gap-3">
+          <button id="toggleView" class="bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black">Toggle List/Grid</button>
+          <button id="startQuiz" class="bg-theme text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90">Start Quiz</button>
+        </div>
+        <div class="ml-auto text-sm text-gray-600">Total: <span id="totalCount">0</span></div>
+      </div>
+
+      <div id="cards" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+      <div id="list" class="mt-6 hidden">
+        <table class="w-full text-left text-sm">
+          <thead><tr class="text-gray-500"><th class="py-2">Word</th><th class="py-2">Meaning</th><th class="py-2">Example</th><th class="py-2">Speak</th></tr></thead>
+          <tbody id="listBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="quizSection" class="bg-white rounded-2xl shadow-lg p-6 md:p-8 hidden">
+      <h2 class="text-2xl font-bold text-theme text-center mb-4">Quick Quiz</h2>
+      <div class="text-center mb-4">
+        <span class="inline-flex items-center gap-2 bg-theme-light px-4 py-2 rounded-full text-sm"><span>🏆</span> Score: <span id="qScore">0</span>/<span id="qTotal">0</span></span>
+      </div>
+      <div class="text-lg font-semibold mb-3" id="qPrompt">Question</div>
+      <div class="grid sm:grid-cols-2 gap-3" id="qOptions"></div>
+      <div id="qFeedback" class="mt-4 text-sm"></div>
+      <div class="mt-5 flex gap-3">
+        <button id="qNext" class="bg-theme text-white px-4 py-2 rounded-lg font-semibold hover:opacity-90">Next</button>
+        <button id="qEnd" class="bg-gray-700 text-white px-4 py-2 rounded-lg font-semibold hover:bg-black">End Quiz</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-theme-light py-8 text-center"><div class="container mx-auto px-4"><p class="text-theme font-semibold">Safe travels and good learning! ✈️</p></div></footer>
+
+  <script>
+    const items = [
+      { w:'ticket', m:'a paper or digital pass to travel', e:'I bought a ticket online.', i:'🎫' },
+      { w:'passport', m:'an official ID for international travel', e:'Show your passport at security.', i:'🛂' },
+      { w:'boarding pass', m:'a pass to enter the plane', e:'Keep your boarding pass ready.', i:'🧾' },
+      { w:'gate', m:'the place where you enter the plane', e:'Our gate is B12.', i:'🚪' },
+      { w:'terminal', m:'a building at the airport', e:'We meet at Terminal 2.', i:'🏢' },
+      { w:'luggage', m:'bags and suitcases', e:'Put your luggage on the scale.', i:'🧳' },
+      { w:'carry-on', m:'a small bag to take on the plane', e:'My carry-on fits above the seat.', i:'🧳' },
+      { w:'check-in', m:'register before your flight', e:'We check in two hours early.', i:'✅' },
+      { w:'security', m:'a check for safety', e:'Go through security before boarding.', i:'🛡️' },
+      { w:'customs', m:'checks goods when entering a country', e:'We pass through customs after landing.', i:'🧾' },
+      { w:'flight', m:'a trip by airplane', e:'Our flight is on time.', i:'✈️' },
+      { w:'arrival', m:'coming to a place', e:'The arrival time is 8:30.', i:'🛬' },
+      { w:'departure', m:'leaving a place', e:'The departure is delayed.', i:'🛫' },
+      { w:'delay', m:'a late time', e:'There is a 30-minute delay.', i:'⏳' },
+      { w:'boarding', m:'entering the plane', e:'Boarding starts at 6:00.', i:'🧑‍✈️' },
+      { w:'aisle seat', m:'a seat next to the walkway', e:'I prefer an aisle seat.', i:'🪑' },
+      { w:'window seat', m:'a seat next to the window', e:'She wants a window seat.', i:'🪟' },
+      { w:'pilot', m:'the person who flies the plane', e:'The pilot greets the passengers.', i:'👨‍✈️' },
+      { w:'crew', m:'people who work on the plane', e:'The crew helps with bags.', i:'🧑‍✈️' },
+      { w:'baggage claim', m:'the area to get your bags', e:'Go to baggage claim after you land.', i:'🎒' },
+      { w:'overweight', m:'too heavy for the limit', e:'My bag is overweight.', i:'⚖️' },
+      { w:'visa', m:'permission to enter a country', e:'I need a visa for this trip.', i:'📄' },
+      { w:'itinerary', m:'a plan of your trip', e:'The itinerary shows our times.', i:'🗺️' },
+      { w:'announcement', m:'a message given to everyone', e:'Listen to the announcement.', i:'📢' }
+    ];
+
+    const el = (id)=>document.getElementById(id);
+    const speak = (t)=>{ if(!('speechSynthesis' in window)){ alert('Speech not supported.'); return;} const u=new SpeechSynthesisUtterance(t); u.lang='en-US'; speechSynthesis.cancel(); speechSynthesis.speak(u); };
+
+    function render(view='grid'){
+      const q = el('search').value.toLowerCase().trim();
+      const filtered = items.filter(x=>x.w.includes(q)||x.m.toLowerCase().includes(q));
+      el('totalCount').textContent = filtered.length;
+      const cards = el('cards'); cards.innerHTML='';
+      if(view==='grid'){
+        filtered.forEach(x=>{
+          const d=document.createElement('div'); d.className='bg-white border rounded-xl p-4 flex flex-col gap-2';
+          d.innerHTML = `<div class='text-3xl'>${x.i}</div><div class='flex items-center justify-between'><div class='text-xl font-bold text-theme'>${x.w}</div><button class='text-sm px-2 py-1 rounded bg-theme text-white'>🔈</button></div><div class='text-gray-700'>${x.m}</div><div class='text-gray-500 text-sm'>Example: ${x.e}</div>`;
+          d.querySelector('button').addEventListener('click',()=>speak(x.w)); cards.appendChild(d);
+        });
+      }
+      const list=el('listBody'); list.innerHTML='';
+      filtered.forEach(x=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td class='py-2 font-semibold'>${x.i} ${x.w}</td><td class='py-2'>${x.m}</td><td class='py-2 text-gray-600'>${x.e}</td><td class='py-2'><button class='px-2 py-1 rounded bg-theme text-white text-xs'>🔈</button></td>`; tr.querySelector('button').addEventListener('click',()=>speak(x.w)); list.appendChild(tr); });
+    }
+
+    // Quiz
+    let quizIndex=0, quizScore=0, quizOrder=[], quizLen=8;
+    function startQuiz(){ quizOrder=[...items].sort(()=>Math.random()-0.5).slice(0,quizLen); quizIndex=0; quizScore=0; el('qScore').textContent='0'; el('qTotal').textContent=String(quizLen); el('quizSection').classList.remove('hidden'); nextQuestion(); }
+    function nextQuestion(){ const cur=quizOrder[quizIndex]; if(!cur){ endQuiz(); return;} el('qPrompt').textContent=`What does "${cur.w}" mean?`; const pool=items.filter(x=>x.w!==cur.w).sort(()=>Math.random()-0.5).slice(0,3).map(x=>x.m); const opts=[...pool,cur.m].sort(()=>Math.random()-0.5); const box=el('qOptions'); box.innerHTML=''; el('qFeedback').textContent=''; opts.forEach(m=>{ const b=document.createElement('button'); b.className='text-left bg-white border p-3 rounded-lg hover:border-theme'; b.textContent=m; b.addEventListener('click',()=>{ if(m===cur.m){ quizScore++; el('qScore').textContent=quizScore; el('qFeedback').innerHTML='<span class="text-green-700">✅ Correct!</span>'; } else { el('qFeedback').innerHTML=`<span class="text-red-700">❌ Correct answer: ${cur.m}</span>`; } quizIndex++; }); box.appendChild(b); }); }
+    function endQuiz(){ const percent=Math.round((quizScore/quizLen)*100); el('qFeedback').innerHTML=`Finished! Score: <strong>${quizScore}/${quizLen}</strong> (${percent}%).`; }
+
+    el('search').addEventListener('input',()=>render(currentView));
+    let currentView='grid';
+    el('toggleView').addEventListener('click',()=>{ currentView=currentView==='grid'?'list':'grid'; el('cards').classList.toggle('hidden',currentView!=='grid'); el('list').classList.toggle('hidden',currentView!=='list'); render(currentView); });
+    el('startQuiz').addEventListener('click',startQuiz); el('qNext').addEventListener('click',nextQuestion); el('qEnd').addEventListener('click',endQuiz);
+    document.addEventListener('DOMContentLoaded',()=>render('grid'));
+  </script>
+</body>
+</html>

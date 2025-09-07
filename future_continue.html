@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Future Continuous! - Interactive Grammar Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#ffffff',
+                        'foreground': '#475569',
+                        'card': '#fef3c7',
+                        'primary': '#f59e0b',
+                        'secondary': '#fbbf24',
+                        'accent': '#fbbf24',
+                        'muted': '#fef3c7',
+                        'border': '#d1d5db',
+                        'futurecont': '#f59e0b',
+                        'futurecont-light': '#fef3c7',
+                        'futurecont-foreground': '#1f2937'
+                    },
+                    fontFamily: {
+                        'heading': ['Inter', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-futurecont-light to-white text-foreground font-body">
+    <!-- Header Section -->
+    <header class="bg-futurecont-light py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-heading font-bold text-futurecont mb-4">Learn Future Continuous! 🔮</h1>
+            <p class="text-xl text-foreground max-w-2xl mx-auto">
+                Master the future continuous tense and learn to talk about actions that will be in progress in the future!
+            </p>
+        </div>
+    </header>
+
+    <!-- Grammar Rules Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futurecont text-center mb-6">
+                    How to Use Future Continuous 🔄
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="p-6 bg-futurecont-light rounded-xl">
+                        <h3 class="font-bold text-futurecont mb-3">✅ Positive Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>will + be + verb + ing</strong></div>
+                            <div class="text-blue-600">I <strong>will be working</strong> tomorrow.</div>
+                            <div class="text-blue-600">She <strong>will be reading</strong> at 8 PM.</div>
+                            <div class="text-blue-600">They <strong>will be playing</strong> football.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-futurecont-light rounded-xl">
+                        <h3 class="font-bold text-futurecont mb-3">❌ Negative Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>will not + be + verb + ing</strong></div>
+                            <div class="text-blue-600">I <strong>won't be working</strong> tonight.</div>
+                            <div class="text-blue-600">She <strong>won't be reading</strong>.</div>
+                            <div class="text-blue-600">They <strong>won't be playing</strong>.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-futurecont-light rounded-xl">
+                        <h3 class="font-bold text-futurecont mb-3">❓ Question Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Will + subject + be + verb + ing?</strong></div>
+                            <div class="text-blue-600"><strong>Will</strong> you be working tomorrow?</div>
+                            <div class="text-blue-600"><strong>Will</strong> she be reading?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-futurecont-light rounded-xl">
+                        <h3 class="font-bold text-futurecont mb-3">🎯 When to Use</h3>
+                        <div class="space-y-1 text-sm">
+                            <div>• Actions in progress at a future time</div>
+                            <div>• Future arrangements/plans</div>
+                            <div>• Polite questions about future plans</div>
+                            <div>• Predictions about ongoing future actions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 1: Multiple Choice Quiz -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futurecont text-center mb-6">
+                    Exercise 1: Multiple Choice Quiz 🎯
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futurecont-light px-4 py-2 rounded-full">
+                            <span class="text-futurecont">🏆</span>
+                            <span class="font-semibold">Score: <span id="quiz1-score">0</span>/<span id="quiz1-total">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="quiz1-container" class="mb-6">
+                        <div class="text-xl font-semibold text-gray-800 mb-4" id="quiz1-question">
+                            Choose the correct future continuous form:
+                        </div>
+                        
+                        <div class="text-lg mb-6 p-4 bg-gray-100 rounded-lg" id="quiz1-sentence">
+                            Loading question...
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6" id="quiz1-options">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="quiz1-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <button
+                            id="quiz1-next"
+                            class="mt-4 bg-futurecont text-futurecont-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Next Question ➡️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 2: Fill in the Blanks -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futurecont text-center mb-6">
+                    Exercise 2: Fill in the Blanks ✏️
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futurecont-light px-4 py-2 rounded-full">
+                            <span class="text-futurecont">📝</span>
+                            <span class="font-semibold">Completed: <span id="blanks-score">0</span>/<span id="blanks-total">6</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4" id="blanks-container">
+                        <!-- Sentences will be generated by JavaScript -->
+                    </div>
+                    
+                    <button
+                        id="check-blanks"
+                        class="mt-6 bg-futurecont text-futurecont-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                    >
+                        Check Answers ✓
+                    </button>
+                    
+                    <button
+                        id="reset-blanks"
+                        class="mt-6 ml-4 bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                    >
+                        Reset 🔄
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 3: Sentence Transformation -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futurecont text-center mb-6">
+                    Exercise 3: Sentence Transformation 🔄
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futurecont-light px-4 py-2 rounded-full">
+                            <span class="text-futurecont">🔄</span>
+                            <span class="font-semibold">Progress: <span id="transform-current">1</span>/<span id="transform-total">5</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="transform-container" class="mb-6">
+                        <div class="text-lg font-semibold text-gray-800 mb-4">
+                            Transform to Future Continuous:
+                        </div>
+                        
+                        <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                            <div class="text-sm text-gray-600 mb-2">Original sentence:</div>
+                            <div class="text-lg font-medium" id="original-sentence">Loading...</div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="text-sm text-gray-600 mb-2 block">Your transformation:</label>
+                            <input
+                                type="text"
+                                id="transform-input"
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-futurecont focus:outline-none"
+                                placeholder="Type your answer here..."
+                            />
+                        </div>
+                        
+                        <div id="transform-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <div class="flex gap-3 justify-center mt-6">
+                            <button
+                                id="check-transform"
+                                class="bg-futurecont text-futurecont-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                            >
+                                Check Answer ✓
+                            </button>
+                            
+                            <button
+                                id="next-transform"
+                                class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity hidden"
+                            >
+                                Next ➡️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 4: Story Completion -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futurecont text-center mb-6">
+                    Exercise 4: Complete the Story 📖
+                </h2>
+                
+                <div class="mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futurecont-light px-4 py-2 rounded-full">
+                            <span class="text-futurecont">📖</span>
+                            <span class="font-semibold">Story Progress: <span id="story-progress">0</span>/8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-futurecont-light p-6 rounded-xl mb-6">
+                        <h3 class="font-bold text-futurecont mb-3">Tomorrow's Schedule</h3>
+                        <div class="text-gray-700 leading-relaxed" id="story-text">
+                            Tomorrow is going to be a busy day! Let me tell you what everyone in my family will be doing at different times.
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4" id="story-blanks">
+                        <!-- Story completion blanks will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="flex gap-3 justify-center mt-6">
+                        <button
+                            id="check-story"
+                            class="bg-futurecont text-futurecont-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Check Story ✓
+                        </button>
+                        
+                        <button
+                            id="reset-story"
+                            class="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Reset Story 🔄
+                        </button>
+                    </div>
+                    
+                    <div id="story-feedback" class="mt-6 p-4 rounded-lg hidden">
+                        <div class="font-semibold mb-2">Complete Story:</div>
+                        <div id="complete-story" class="text-gray-700 leading-relaxed"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Tips -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-heading font-bold text-futurecont mb-6">
+                    Grammar Tips! 💡
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gradient-to-br from-futurecont-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🔮</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Future in Progress</h3>
+                        <p class="text-gray-600">
+                            Use future continuous for actions that will be happening at a specific future time.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-futurecont-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📅</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Polite Questions</h3>
+                        <p class="text-gray-600">
+                            "Will you be using this?" sounds more polite than "Will you use this?"
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-futurecont-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">⏰</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Time References</h3>
+                        <p class="text-gray-600">
+                            Often used with time expressions: "at 3 PM", "this time tomorrow", "next week".
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-futurecont-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Predictions</h3>
+                        <p class="text-gray-600">
+                            Great for predicting what will be happening: "It will be raining tomorrow."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-futurecont-light py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-futurecont font-semibold">Keep practicing and master Future Continuous! 🔮✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Exercise 1: Multiple Choice Quiz Data
+        const quiz1Questions = [
+            {
+                sentence: "At 8 PM tonight, I _____ my homework.",
+                options: ["will do", "will be doing", "will have done", "do"],
+                correct: 1,
+                explanation: "Use 'will be doing' for actions in progress at a specific future time"
+            },
+            {
+                sentence: "This time tomorrow, we _____ on the beach.",
+                options: ["will relax", "will be relaxing", "relax", "are relaxing"],
+                correct: 1,
+                explanation: "Use 'will be relaxing' for ongoing action at a specific future time"
+            },
+            {
+                sentence: "_____ you _____ TV at 9 PM?",
+                options: ["Will/watch", "Will/be watching", "Are/watching", "Do/watch"],
+                correct: 1,
+                explanation: "Use 'Will you be watching' for future continuous questions"
+            },
+            {
+                sentence: "They _____ not _____ here next week.",
+                options: ["will/work", "will/be working", "are/working", "do/work"],
+                correct: 1,
+                explanation: "Use 'will not be working' for negative future continuous"
+            },
+            {
+                sentence: "She _____ for her exam all weekend.",
+                options: ["will study", "will be studying", "studies", "is studying"],
+                correct: 1,
+                explanation: "Use 'will be studying' for actions continuing over a future period"
+            }
+        ];
+
+        // Exercise 2: Fill in the Blanks Data
+        const blanksData = [
+            {
+                sentence: "At 10 AM tomorrow, I _____ _____ _____ (attend) a meeting.",
+                answer: "will be attending",
+                placeholder: "will be attending"
+            },
+            {
+                sentence: "This time next year, she _____ _____ _____ (live) in Paris.",
+                answer: "will be living",
+                placeholder: "will be living"
+            },
+            {
+                sentence: "_____ you _____ _____ (work) late tonight?",
+                answer: "Will be working",
+                placeholder: "Will...be working"
+            },
+            {
+                sentence: "They _____ _____ _____ (not/travel) during the holidays.",
+                answer: "will not be traveling",
+                placeholder: "will not be traveling"
+            },
+            {
+                sentence: "The children _____ _____ _____ (play) in the garden at 4 PM.",
+                answer: "will be playing",
+                placeholder: "will be playing"
+            },
+            {
+                sentence: "I _____ _____ _____ (wait) for you at the station.",
+                answer: "will be waiting",
+                placeholder: "will be waiting"
+            }
+        ];
+
+        // Exercise 3: Transformation Data
+        const transformData = [
+            {
+                original: "I will study at 8 PM.",
+                correct: "I will be studying at 8 PM.",
+                hint: "Change to continuous form"
+            },
+            {
+                original: "She will cook dinner tomorrow evening.",
+                correct: "She will be cooking dinner tomorrow evening.",
+                hint: "Add 'be' and change verb to -ing"
+            },
+            {
+                original: "They will play tennis at 3 PM.",
+                correct: "They will be playing tennis at 3 PM.",
+                hint: "Use future continuous structure"
+            },
+            {
+                original: "Will you work late tonight?",
+                correct: "Will you be working late tonight?",
+                hint: "Transform to continuous question"
+            },
+            {
+                original: "We will not watch TV this evening.",
+                correct: "We will not be watching TV this evening.",
+                hint: "Change to negative continuous"
+            }
+        ];
+
+        // Exercise 4: Story Data
+        const storyData = [
+            {
+                text: "At 7 AM, my dad _____ _____ _____ (read) the newspaper while drinking coffee.",
+                answer: "will be reading",
+                options: ["will be reading", "will read", "reads", "is reading"]
+            },
+            {
+                text: "My mom _____ _____ _____ (prepare) breakfast in the kitchen.",
+                answer: "will be preparing",
+                options: ["will be preparing", "will prepare", "prepares", "is preparing"]
+            },
+            {
+                text: "At 8 AM, I _____ _____ _____ (get) ready for school.",
+                answer: "will be getting",
+                options: ["will be getting", "will get", "get", "am getting"]
+            },
+            {
+                text: "My sister _____ _____ _____ (not/sleep) because she has an early class.",
+                answer: "will not be sleeping",
+                options: ["will not be sleeping", "will not sleep", "doesn't sleep", "isn't sleeping"]
+            },
+            {
+                text: "During lunch time, we _____ _____ _____ (eat) together as a family.",
+                answer: "will be eating",
+                options: ["will be eating", "will eat", "eat", "are eating"]
+            },
+            {
+                text: "In the afternoon, my dad _____ _____ _____ (work) in his office.",
+                answer: "will be working",
+                options: ["will be working", "will work", "works", "is working"]
+            },
+            {
+                text: "At 6 PM, my mom _____ _____ _____ (cook) our favorite dinner.",
+                answer: "will be cooking",
+                options: ["will be cooking", "will cook", "cooks", "is cooking"]
+            },
+            {
+                text: "Before bedtime, we _____ _____ _____ (watch) a movie together.",
+                answer: "will be watching",
+                options: ["will be watching", "will watch", "watch", "are watching"]
+            }
+        ];
+
+        // Quiz 1 Logic
+        let quiz1Index = 0;
+        let quiz1Score = 0;
+        let quiz1Total = 0;
+
+        function loadQuiz1Question() {
+            if (quiz1Index >= quiz1Questions.length) {
+                quiz1Index = 0;
+            }
+            
+            const question = quiz1Questions[quiz1Index];
+            document.getElementById('quiz1-sentence').textContent = question.sentence;
+            
+            const optionsContainer = document.getElementById('quiz1-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-futurecont hover:bg-futurecont-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkQuiz1Answer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('quiz1-feedback').classList.add('hidden');
+        }
+
+        function checkQuiz1Answer(selectedIndex) {
+            const question = quiz1Questions[quiz1Index];
+            quiz1Total++;
+            document.getElementById('quiz1-total').textContent = quiz1Total;
+            
+            const feedbackEl = document.getElementById('quiz1-feedback');
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                quiz1Score++;
+                document.getElementById('quiz1-score').textContent = quiz1Score;
+                feedbackEl.textContent = `🎉 Correct! ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${question.options[question.correct]}". ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            const buttons = document.querySelectorAll('#quiz1-options button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+        }
+
+        function nextQuiz1Question() {
+            quiz1Index++;
+            loadQuiz1Question();
+        }
+
+        // Fill in the Blanks Logic
+        function setupBlanksExercise() {
+            const container = document.getElementById('blanks-container');
+            container.innerHTML = '';
+            
+            blanksData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-gray-100 p-4 rounded-lg text-left';
+                
+                const sentence = item.sentence.replace(/_____ _____ _____|\_____|_____/g, 
+                    `<input type="text" class="blank-input mx-2 px-2 py-1 border rounded" data-answer="${item.answer}" placeholder="${item.placeholder}" />`);
+                
+                div.innerHTML = `<div class="text-lg">${sentence}</div>`;
+                container.appendChild(div);
+            });
+        }
+
+        function checkBlanksAnswers() {
+            const inputs = document.querySelectorAll('.blank-input');
+            let correct = 0;
+            
+            inputs.forEach(input => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer === correctAnswer) {
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-green-500', 'bg-green-50');
+                    correct++;
+                } else {
+                    input.classList.remove('border-green-500');
+                    input.classList.add('border-red-500', 'bg-red-50');
+                }
+            });
+            
+            document.getElementById('blanks-score').textContent = correct;
+        }
+
+        function resetBlanksExercise() {
+            const inputs = document.querySelectorAll('.blank-input');
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('border-red-500', 'border-green-500', 'bg-red-50', 'bg-green-50');
+            });
+            document.getElementById('blanks-score').textContent = '0';
+        }
+
+        // Transformation Exercise Logic
+        let transformIndex = 0;
+
+        function loadTransformQuestion() {
+            if (transformIndex >= transformData.length) {
+                transformIndex = 0;
+            }
+            
+            const question = transformData[transformIndex];
+            document.getElementById('original-sentence').textContent = question.original;
+            document.getElementById('transform-input').value = '';
+            document.getElementById('transform-feedback').classList.add('hidden');
+            document.getElementById('next-transform').classList.add('hidden');
+            document.getElementById('transform-current').textContent = transformIndex + 1;
+        }
+
+        function checkTransformAnswer() {
+            const userAnswer = document.getElementById('transform-input').value.trim();
+            const correctAnswer = transformData[transformIndex].correct;
+            const feedbackEl = document.getElementById('transform-feedback');
+            
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                feedbackEl.textContent = '🎉 Perfect! Your transformation is correct!';
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+                document.getElementById('next-transform').classList.remove('hidden');
+            } else {
+                feedbackEl.textContent = `��� Not quite right. Correct answer: "${correctAnswer}"`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+        }
+
+        function nextTransformQuestion() {
+            transformIndex++;
+            loadTransformQuestion();
+        }
+
+        // Story Exercise Logic
+        function setupStoryExercise() {
+            const container = document.getElementById('story-blanks');
+            container.innerHTML = '';
+            
+            storyData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-gray-100 p-4 rounded-lg text-left';
+                
+                const select = document.createElement('select');
+                select.className = 'story-select mx-2 px-2 py-1 border rounded';
+                select.dataset.answer = item.answer;
+                
+                const defaultOption = document.createElement('option');
+                defaultOption.value = '';
+                defaultOption.textContent = 'Choose...';
+                select.appendChild(defaultOption);
+                
+                item.options.forEach(option => {
+                    const optionEl = document.createElement('option');
+                    optionEl.value = option;
+                    optionEl.textContent = option;
+                    select.appendChild(optionEl);
+                });
+                
+                const text = item.text.replace(/_____ _____ _____/, '');
+                div.innerHTML = `<div class="text-lg">${text}</div>`;
+                div.querySelector('div').appendChild(select);
+                
+                container.appendChild(div);
+            });
+        }
+
+        function checkStoryAnswers() {
+            const selects = document.querySelectorAll('.story-select');
+            let correct = 0;
+            let completeStory = 'Tomorrow is going to be a busy day! Let me tell you what everyone in my family will be doing at different times.\n\n';
+            
+            selects.forEach((select, index) => {
+                const userAnswer = select.value;
+                const correctAnswer = select.dataset.answer;
+                
+                if (userAnswer === correctAnswer) {
+                    select.classList.remove('border-red-500');
+                    select.classList.add('border-green-500', 'bg-green-50');
+                    correct++;
+                } else {
+                    select.classList.remove('border-green-500');
+                    select.classList.add('border-red-500', 'bg-red-50');
+                }
+                
+                const storyText = storyData[index].text.replace(/_____ _____ _____/, correctAnswer);
+                completeStory += storyText + ' ';
+            });
+            
+            document.getElementById('story-progress').textContent = correct;
+            
+            if (correct === storyData.length) {
+                document.getElementById('story-feedback').classList.remove('hidden');
+                document.getElementById('complete-story').textContent = completeStory;
+                document.getElementById('story-feedback').className = 'mt-6 p-4 rounded-lg bg-green-100 text-green-800';
+            }
+        }
+
+        function resetStoryExercise() {
+            const selects = document.querySelectorAll('.story-select');
+            selects.forEach(select => {
+                select.value = '';
+                select.classList.remove('border-red-500', 'border-green-500', 'bg-red-50', 'bg-green-50');
+            });
+            document.getElementById('story-progress').textContent = '0';
+            document.getElementById('story-feedback').classList.add('hidden');
+        }
+
+        // Event Listeners
+        document.getElementById('quiz1-next').addEventListener('click', nextQuiz1Question);
+        document.getElementById('check-blanks').addEventListener('click', checkBlanksAnswers);
+        document.getElementById('reset-blanks').addEventListener('click', resetBlanksExercise);
+        document.getElementById('check-transform').addEventListener('click', checkTransformAnswer);
+        document.getElementById('next-transform').addEventListener('click', nextTransformQuestion);
+        document.getElementById('check-story').addEventListener('click', checkStoryAnswers);
+        document.getElementById('reset-story').addEventListener('click', resetStoryExercise);
+
+        // Initialize all exercises
+        loadQuiz1Question();
+        setupBlanksExercise();
+        loadTransformQuestion();
+        setupStoryExercise();
+    </script>
+</body>
+</html>

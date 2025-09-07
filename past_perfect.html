@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Past Perfect! - Interactive Grammar Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#ffffff',
+                        'foreground': '#475569',
+                        'card': '#e0e7ff',
+                        'primary': '#6366f1',
+                        'secondary': '#818cf8',
+                        'accent': '#818cf8',
+                        'muted': '#e0e7ff',
+                        'border': '#d1d5db',
+                        'pastperf': '#6366f1',
+                        'pastperf-light': '#e0e7ff',
+                        'pastperf-foreground': '#1f2937'
+                    },
+                    fontFamily: {
+                        'heading': ['Inter', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-pastperf-light to-white text-foreground font-body">
+    <!-- Header Section -->
+    <header class="bg-pastperf-light py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-heading font-bold text-pastperf mb-4">Learn Past Perfect! ⏪</h1>
+            <p class="text-xl text-foreground max-w-2xl mx-auto">
+                Master the past perfect tense and learn to show which action happened first in the past!
+            </p>
+        </div>
+    </header>
+
+    <!-- Grammar Rules Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-pastperf text-center mb-6">
+                    How to Use Past Perfect ⏮️
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="p-6 bg-pastperf-light rounded-xl">
+                        <h3 class="font-bold text-pastperf mb-3">✅ Positive Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>had + past participle</strong></div>
+                            <div class="text-blue-600">I <strong>had finished</strong> before you arrived.</div>
+                            <div class="text-blue-600">She <strong>had left</strong> when I called.</div>
+                            <div class="text-blue-600">They <strong>had eaten</strong> already.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-pastperf-light rounded-xl">
+                        <h3 class="font-bold text-pastperf mb-3">❌ Negative Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>had + not + past participle</strong></div>
+                            <div class="text-blue-600">I <strong>hadn't finished</strong> yet.</div>
+                            <div class="text-blue-600">She <strong>hadn't left</strong> when I called.</div>
+                            <div class="text-blue-600">They <strong>hadn't eaten</strong> anything.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-pastperf-light rounded-xl">
+                        <h3 class="font-bold text-pastperf mb-3">❓ Question Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Had + subject + past participle?</strong></div>
+                            <div class="text-blue-600"><strong>Had</strong> you finished before I arrived?</div>
+                            <div class="text-blue-600"><strong>Had</strong> she left already?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-pastperf-light rounded-xl">
+                        <h3 class="font-bold text-pastperf mb-3">🎯 When to Use</h3>
+                        <div class="space-y-1 text-sm">
+                            <div>• Earlier action in the past</div>
+                            <div>• Action before another past action</div>
+                            <div>• With time expressions (before, after, when)</div>
+                            <div>• In reported speech</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 1: Timeline Sequencing -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-pastperf text-center mb-6">
+                    Exercise 1: Timeline Sequencing 📅
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-pastperf-light px-4 py-2 rounded-full">
+                            <span class="text-pastperf">📅</span>
+                            <span class="font-semibold">Progress: <span id="timeline-current">1</span>/<span id="timeline-total">6</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="timeline-container" class="mb-6">
+                        <div class="text-lg font-semibold text-gray-800 mb-6">
+                            Put these events in chronological order and choose the correct past perfect sentence:
+                        </div>
+                        
+                        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                            <h4 class="font-semibold mb-4">Scenario:</h4>
+                            <div id="timeline-scenario" class="text-lg mb-4">Loading scenario...</div>
+                            
+                            <div class="space-y-3" id="timeline-events">
+                                <!-- Events will be loaded by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="text-lg font-semibold text-gray-800 mb-4">
+                            Which sentence correctly uses past perfect?
+                        </div>
+                        
+                        <div class="grid md:grid-cols-1 gap-4 mb-6" id="timeline-options">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="timeline-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <div class="flex gap-3 justify-center mt-6">
+                            <button
+                                id="check-timeline"
+                                class="bg-pastperf text-pastperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                            >
+                                Check Answer ✓
+                            </button>
+                            
+                            <button
+                                id="next-timeline"
+                                class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity hidden"
+                            >
+                                Next Scenario ➡️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 2: Complete the Story -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-pastperf text-center mb-6">
+                    Exercise 2: Complete the Detective Story 🕵️
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-pastperf-light px-4 py-2 rounded-full">
+                            <span class="text-pastperf">🕵️</span>
+                            <span class="font-semibold">Completed: <span id="story-completed">0</span>/<span id="story-total">8</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-pastperf-light p-6 rounded-xl mb-6">
+                        <h3 class="font-bold text-pastperf mb-3">🕵️ Detective Smith's Investigation</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Complete this detective story using the past perfect tense. 
+                            Fill in each blank with the correct form of the verb in parentheses.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg border-2 border-gray-200 text-left space-y-4" id="detective-story">
+                        <!-- Story will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="flex gap-3 justify-center mt-6">
+                        <button
+                            id="check-story"
+                            class="bg-pastperf text-pastperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Check Story ✓
+                        </button>
+                        
+                        <button
+                            id="reset-story"
+                            class="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Reset Story 🔄
+                        </button>
+                    </div>
+                    
+                    <div id="story-feedback" class="mt-6 p-4 rounded-lg hidden">
+                        <div class="font-bold text-pastperf mb-2">Complete Story:</div>
+                        <div id="complete-detective-story" class="text-gray-700 leading-relaxed text-left"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 3: Before/After Sentences -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-pastperf text-center mb-6">
+                    Exercise 3: Before & After Connector Practice 🔗
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-pastperf-light px-4 py-2 rounded-full">
+                            <span class="text-pastperf">🔗</span>
+                            <span class="font-semibold">Progress: <span id="connector-current">1</span>/<span id="connector-total">6</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="connector-container" class="mb-6">
+                        <div class="text-lg font-semibold text-gray-800 mb-4">
+                            Combine these two sentences using past perfect and the connector:
+                        </div>
+                        
+                        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-2">First Action (earlier):</div>
+                                    <div class="font-medium text-green-700" id="first-action">Loading...</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-2">Second Action (later):</div>
+                                    <div class="font-medium text-blue-700" id="second-action">Loading...</div>
+                                </div>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <div class="text-sm text-gray-600 mb-2">Use this connector:</div>
+                                <div class="font-bold text-pastperf text-lg" id="connector-word">before</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="text-sm text-gray-600 mb-2 block">Your combined sentence:</label>
+                            <textarea
+                                id="connector-input"
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg text-lg resize-none h-24 focus:border-pastperf focus:outline-none"
+                                placeholder="Write your sentence using past perfect..."
+                            ></textarea>
+                        </div>
+                        
+                        <div id="connector-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <div class="flex gap-3 justify-center mt-6">
+                            <button
+                                id="check-connector"
+                                class="bg-pastperf text-pastperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                            >
+                                Check Answer ✓
+                            </button>
+                            
+                            <button
+                                id="next-connector"
+                                class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity hidden"
+                            >
+                                Next Exercise ➡️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 4: Multiple Choice Challenge -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-pastperf text-center mb-6">
+                    Exercise 4: Multiple Choice Challenge 🎯
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-pastperf-light px-4 py-2 rounded-full">
+                            <span class="text-pastperf">🎯</span>
+                            <span class="font-semibold">Score: <span id="challenge-score">0</span>/<span id="challenge-total">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="challenge-container" class="mb-6">
+                        <div class="text-xl font-semibold text-gray-800 mb-4" id="challenge-question">
+                            Choose the correct past perfect form:
+                        </div>
+                        
+                        <div class="text-lg mb-6 p-4 bg-gray-100 rounded-lg" id="challenge-sentence">
+                            Loading question...
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6" id="challenge-options">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="challenge-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <button
+                            id="challenge-next"
+                            class="mt-4 bg-pastperf text-pastperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Next Question ➡️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Tips -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-heading font-bold text-pastperf mb-6">
+                    Grammar Tips! 💡
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gradient-to-br from-pastperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">⏰</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Earlier Past Action</h3>
+                        <p class="text-gray-600">
+                            Past perfect shows which action happened first when talking about two past events.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-pastperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🔗</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Time Connectors</h3>
+                        <p class="text-gray-600">
+                            Often used with "before", "after", "when", "by the time", "already".
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-pastperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">👥</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Same for All Subjects</h3>
+                        <p class="text-gray-600">
+                            Always use "had" - never "has" or "have" in past perfect tense.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-pastperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📖</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Storytelling</h3>
+                        <p class="text-gray-600">
+                            Perfect for stories and reports when explaining what happened before the main events.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-pastperf-light py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-pastperf font-semibold">Keep practicing and master Past Perfect! ⏪✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Exercise 1: Timeline Data
+        const timelineData = [
+            {
+                scenario: "Sarah's busy morning",
+                events: [
+                    { action: "Sarah's alarm rang at 7 AM", time: "7:00 AM", order: 2 },
+                    { action: "Sarah had already showered", time: "6:45 AM", order: 1 }
+                ],
+                options: [
+                    "When Sarah's alarm rang, she already showered.",
+                    "When Sarah's alarm rang, she had already showered.",
+                    "When Sarah's alarm had rang, she already showered."
+                ],
+                correct: 1,
+                explanation: "Use past perfect 'had showered' for the earlier action."
+            },
+            {
+                scenario: "John's homework situation",
+                events: [
+                    { action: "John's teacher asked for homework", time: "9:00 AM", order: 2 },
+                    { action: "John had forgotten to do his homework", time: "Previous night", order: 1 }
+                ],
+                options: [
+                    "When the teacher asked for homework, John forgot to do it.",
+                    "When the teacher asked for homework, John had forgotten to do it.",
+                    "When the teacher had asked for homework, John forgot to do it."
+                ],
+                correct: 1,
+                explanation: "Use past perfect 'had forgotten' for the earlier action."
+            },
+            {
+                scenario: "Maria's travel experience",
+                events: [
+                    { action: "Maria arrived at the airport", time: "8:00 PM", order: 2 },
+                    { action: "The plane had already departed", time: "7:30 PM", order: 1 }
+                ],
+                options: [
+                    "When Maria arrived, the plane already departed.",
+                    "When Maria had arrived, the plane already departed.",
+                    "When Maria arrived, the plane had already departed."
+                ],
+                correct: 2,
+                explanation: "Use past perfect 'had departed' for the earlier action."
+            },
+            {
+                scenario: "Tom's movie night",
+                events: [
+                    { action: "Tom turned on the TV", time: "8:00 PM", order: 2 },
+                    { action: "The movie had already started", time: "7:45 PM", order: 1 }
+                ],
+                options: [
+                    "When Tom turned on the TV, the movie already started.",
+                    "When Tom turned on the TV, the movie had already started.",
+                    "When Tom had turned on the TV, the movie already started."
+                ],
+                correct: 1,
+                explanation: "Use past perfect 'had started' for the earlier action."
+            },
+            {
+                scenario: "Lisa's cooking disaster",
+                events: [
+                    { action: "Lisa opened the oven", time: "6:30 PM", order: 2 },
+                    { action: "The cake had already burned", time: "Before 6:30 PM", order: 1 }
+                ],
+                options: [
+                    "When Lisa opened the oven, the cake already burned.",
+                    "When Lisa opened the oven, the cake had already burned.",
+                    "When Lisa had opened the oven, the cake already burned."
+                ],
+                correct: 1,
+                explanation: "Use past perfect 'had burned' for the earlier action."
+            },
+            {
+                scenario: "David's phone call",
+                events: [
+                    { action: "David called his friend", time: "10:00 PM", order: 2 },
+                    { action: "His friend had already gone to bed", time: "9:30 PM", order: 1 }
+                ],
+                options: [
+                    "When David called, his friend already went to bed.",
+                    "When David called, his friend had already gone to bed.",
+                    "When David had called, his friend already went to bed."
+                ],
+                correct: 1,
+                explanation: "Use past perfect 'had gone' for the earlier action."
+            }
+        ];
+
+        // Exercise 2: Detective Story Data
+        const detectiveStoryData = [
+            {
+                text: "Detective Smith arrived at the crime scene at 9 AM. The witness told him that the burglar _____ (escape) through the window before the police arrived.",
+                answer: "had escaped",
+                verb: "escape"
+            },
+            {
+                text: "The detective noticed that someone _____ (break) the lock on the back door.",
+                answer: "had broken",
+                verb: "break"
+            },
+            {
+                text: "The neighbors reported that they _____ (see) a suspicious person around the house the night before.",
+                answer: "had seen",
+                verb: "see"
+            },
+            {
+                text: "When Detective Smith examined the safe, he discovered that the thief _____ (take) all the jewelry.",
+                answer: "had taken",
+                verb: "take"
+            },
+            {
+                text: "The security guard admitted that he _____ (fall) asleep during his shift.",
+                answer: "had fallen",
+                verb: "fall"
+            },
+            {
+                text: "Fingerprint analysis revealed that the criminal _____ (wear) gloves during the robbery.",
+                answer: "had worn",
+                verb: "wear"
+            },
+            {
+                text: "The investigation showed that the burglar _____ (plan) the crime for several weeks.",
+                answer: "had planned",
+                verb: "plan"
+            },
+            {
+                text: "By the end of the day, Detective Smith _____ (solve) the case and arrested the suspect.",
+                answer: "had solved",
+                verb: "solve"
+            }
+        ];
+
+        // Exercise 3: Connector Data
+        const connectorData = [
+            {
+                first: "I finished my homework.",
+                second: "My friends came to visit.",
+                connector: "before",
+                sample: "I had finished my homework before my friends came to visit."
+            },
+            {
+                first: "She studied English for 3 years.",
+                second: "She moved to London.",
+                connector: "before",
+                sample: "She had studied English for 3 years before she moved to London."
+            },
+            {
+                first: "They cleaned the house.",
+                second: "The guests arrived.",
+                connector: "before",
+                sample: "They had cleaned the house before the guests arrived."
+            },
+            {
+                first: "He saved enough money.",
+                second: "He bought the car.",
+                connector: "after",
+                sample: "After he had saved enough money, he bought the car."
+            },
+            {
+                first: "We ate dinner.",
+                second: "We watched the movie.",
+                connector: "after",
+                sample: "After we had eaten dinner, we watched the movie."
+            },
+            {
+                first: "The rain stopped.",
+                second: "The children went outside to play.",
+                connector: "after",
+                sample: "After the rain had stopped, the children went outside to play."
+            }
+        ];
+
+        // Exercise 4: Challenge Quiz Data
+        const challengeQuestions = [
+            {
+                sentence: "By the time I arrived, the meeting _____ already _____.",
+                options: ["has/started", "had/started", "have/started", "was/starting"],
+                correct: 1,
+                explanation: "Use past perfect 'had started' for actions completed before a past time."
+            },
+            {
+                sentence: "She realized she _____ her keys at home.",
+                options: ["forgot", "had forgotten", "has forgotten", "was forgetting"],
+                correct: 1,
+                explanation: "Use past perfect 'had forgotten' for the earlier action."
+            },
+            {
+                sentence: "_____ you _____ Japanese before you moved to Tokyo?",
+                options: ["Did/study", "Had/studied", "Have/studied", "Were/studying"],
+                correct: 1,
+                explanation: "Use past perfect 'Had you studied' for actions before a past event."
+            },
+            {
+                sentence: "The students _____ the test before the teacher collected it.",
+                options: ["finished", "had finished", "have finished", "were finishing"],
+                correct: 1,
+                explanation: "Use past perfect 'had finished' for the earlier action."
+            },
+            {
+                sentence: "After they _____ dinner, they went for a walk.",
+                options: ["ate", "had eaten", "have eaten", "were eating"],
+                correct: 1,
+                explanation: "Use past perfect 'had eaten' after 'after' with past tense main clause."
+            }
+        ];
+
+        // Timeline Exercise Logic
+        let timelineIndex = 0;
+
+        function loadTimelineScenario() {
+            if (timelineIndex >= timelineData.length) {
+                timelineIndex = 0;
+            }
+            
+            const scenario = timelineData[timelineIndex];
+            document.getElementById('timeline-scenario').textContent = scenario.scenario;
+            
+            const eventsContainer = document.getElementById('timeline-events');
+            eventsContainer.innerHTML = '';
+            
+            scenario.events.forEach((event, index) => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between p-3 bg-white rounded border';
+                div.innerHTML = `
+                    <span>${event.action}</span>
+                    <span class="text-sm text-gray-600">${event.time}</span>
+                `;
+                eventsContainer.appendChild(div);
+            });
+            
+            const optionsContainer = document.getElementById('timeline-options');
+            optionsContainer.innerHTML = '';
+            
+            scenario.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-pastperf hover:bg-pastperf-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkTimelineAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('timeline-feedback').classList.add('hidden');
+            document.getElementById('next-timeline').classList.add('hidden');
+            document.getElementById('timeline-current').textContent = timelineIndex + 1;
+        }
+
+        function checkTimelineAnswer(selectedIndex) {
+            const scenario = timelineData[timelineIndex];
+            const feedbackEl = document.getElementById('timeline-feedback');
+            const isCorrect = selectedIndex === scenario.correct;
+            
+            if (isCorrect) {
+                feedbackEl.textContent = `🎉 Correct! ${scenario.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+                document.getElementById('next-timeline').classList.remove('hidden');
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${scenario.options[scenario.correct]}". ${scenario.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            const buttons = document.querySelectorAll('#timeline-options button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+        }
+
+        function nextTimelineScenario() {
+            timelineIndex++;
+            loadTimelineScenario();
+        }
+
+        // Detective Story Logic
+        function setupDetectiveStory() {
+            const container = document.getElementById('detective-story');
+            container.innerHTML = '';
+            
+            detectiveStoryData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'mb-4';
+                
+                const text = item.text.replace('_____', '');
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'story-input mx-2 px-3 py-2 border-2 border-gray-300 rounded w-40 text-center';
+                input.placeholder = `had + ${item.verb}`;
+                input.dataset.answer = item.answer;
+                
+                const textParts = item.text.split('_____');
+                div.innerHTML = `<span class="text-lg">${textParts[0]}</span>`;
+                div.appendChild(input);
+                div.innerHTML += `<span class="text-lg">${textParts[1] || ''}</span>`;
+                
+                container.appendChild(div);
+            });
+        }
+
+        function checkDetectiveStory() {
+            const inputs = document.querySelectorAll('.story-input');
+            let correct = 0;
+            let completeStory = '';
+            
+            inputs.forEach((input, index) => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer === correctAnswer) {
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-green-500', 'bg-green-50');
+                    correct++;
+                } else {
+                    input.classList.remove('border-green-500');
+                    input.classList.add('border-red-500', 'bg-red-50');
+                }
+                
+                const storyText = detectiveStoryData[index].text.replace('_____', input.dataset.answer);
+                completeStory += storyText + ' ';
+            });
+            
+            document.getElementById('story-completed').textContent = correct;
+            
+            if (correct === detectiveStoryData.length) {
+                document.getElementById('story-feedback').classList.remove('hidden');
+                document.getElementById('complete-detective-story').textContent = completeStory;
+                document.getElementById('story-feedback').className = 'mt-6 p-4 rounded-lg bg-green-100 text-green-800';
+            }
+        }
+
+        function resetDetectiveStory() {
+            const inputs = document.querySelectorAll('.story-input');
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('border-red-500', 'border-green-500', 'bg-red-50', 'bg-green-50');
+            });
+            document.getElementById('story-completed').textContent = '0';
+            document.getElementById('story-feedback').classList.add('hidden');
+        }
+
+        // Connector Exercise Logic
+        let connectorIndex = 0;
+
+        function loadConnectorExercise() {
+            if (connectorIndex >= connectorData.length) {
+                connectorIndex = 0;
+            }
+            
+            const exercise = connectorData[connectorIndex];
+            document.getElementById('first-action').textContent = exercise.first;
+            document.getElementById('second-action').textContent = exercise.second;
+            document.getElementById('connector-word').textContent = exercise.connector;
+            document.getElementById('connector-input').value = '';
+            document.getElementById('connector-feedback').classList.add('hidden');
+            document.getElementById('next-connector').classList.add('hidden');
+            document.getElementById('connector-current').textContent = connectorIndex + 1;
+        }
+
+        function checkConnectorAnswer() {
+            const userAnswer = document.getElementById('connector-input').value.trim().toLowerCase();
+            const correctAnswer = connectorData[connectorIndex].sample.toLowerCase();
+            const feedbackEl = document.getElementById('connector-feedback');
+            
+            // Check if the answer contains the key elements
+            const hasHad = userAnswer.includes('had');
+            const hasConnector = userAnswer.includes(connectorData[connectorIndex].connector);
+            const isReasonable = userAnswer.length > 10;
+            
+            if (userAnswer === correctAnswer || (hasHad && hasConnector && isReasonable)) {
+                feedbackEl.textContent = '🎉 Great! Your sentence correctly uses past perfect!';
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+                document.getElementById('next-connector').classList.remove('hidden');
+            } else {
+                feedbackEl.textContent = `💭 Sample answer: "${connectorData[connectorIndex].sample}"`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-blue-100 text-blue-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+        }
+
+        function nextConnectorExercise() {
+            connectorIndex++;
+            loadConnectorExercise();
+        }
+
+        // Challenge Quiz Logic
+        let challengeIndex = 0;
+        let challengeScore = 0;
+        let challengeTotal = 0;
+
+        function loadChallengeQuestion() {
+            if (challengeIndex >= challengeQuestions.length) {
+                challengeIndex = 0;
+            }
+            
+            const question = challengeQuestions[challengeIndex];
+            document.getElementById('challenge-sentence').textContent = question.sentence;
+            
+            const optionsContainer = document.getElementById('challenge-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-pastperf hover:bg-pastperf-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkChallengeAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('challenge-feedback').classList.add('hidden');
+        }
+
+        function checkChallengeAnswer(selectedIndex) {
+            const question = challengeQuestions[challengeIndex];
+            challengeTotal++;
+            document.getElementById('challenge-total').textContent = challengeTotal;
+            
+            const feedbackEl = document.getElementById('challenge-feedback');
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                challengeScore++;
+                document.getElementById('challenge-score').textContent = challengeScore;
+                feedbackEl.textContent = `🎉 Correct! ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${question.options[question.correct]}". ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            const buttons = document.querySelectorAll('#challenge-options button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+        }
+
+        function nextChallengeQuestion() {
+            challengeIndex++;
+            loadChallengeQuestion();
+        }
+
+        // Event Listeners
+        document.getElementById('check-timeline').addEventListener('click', () => {
+            // Timeline check is handled by button clicks in options
+        });
+        document.getElementById('next-timeline').addEventListener('click', nextTimelineScenario);
+        document.getElementById('check-story').addEventListener('click', checkDetectiveStory);
+        document.getElementById('reset-story').addEventListener('click', resetDetectiveStory);
+        document.getElementById('check-connector').addEventListener('click', checkConnectorAnswer);
+        document.getElementById('next-connector').addEventListener('click', nextConnectorExercise);
+        document.getElementById('challenge-next').addEventListener('click', nextChallengeQuestion);
+
+        // Initialize all exercises
+        loadTimelineScenario();
+        setupDetectiveStory();
+        loadConnectorExercise();
+        loadChallengeQuestion();
+    </script>
+</body>
+</html>

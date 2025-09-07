@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Future Perfect! - Interactive Grammar Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'background': '#ffffff',
+                        'foreground': '#475569',
+                        'card': '#ecfccb',
+                        'primary': '#65a30d',
+                        'secondary': '#84cc16',
+                        'accent': '#84cc16',
+                        'muted': '#ecfccb',
+                        'border': '#d1d5db',
+                        'futureperf': '#65a30d',
+                        'futureperf-light': '#ecfccb',
+                        'futureperf-foreground': '#1f2937'
+                    },
+                    fontFamily: {
+                        'heading': ['Inter', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-futureperf-light to-white text-foreground font-body">
+    <!-- Header Section -->
+    <header class="bg-futureperf-light py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-heading font-bold text-futureperf mb-4">Learn Future Perfect! 🎯</h1>
+            <p class="text-xl text-foreground max-w-2xl mx-auto">
+                Master the future perfect tense and learn to talk about actions that will be completed by a future time!
+            </p>
+        </div>
+    </header>
+
+    <!-- Grammar Rules Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futureperf text-center mb-6">
+                    How to Use Future Perfect ⏭️
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="p-6 bg-futureperf-light rounded-xl">
+                        <h3 class="font-bold text-futureperf mb-3">✅ Positive Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>will have + past participle</strong></div>
+                            <div class="text-blue-600">I <strong>will have finished</strong> by 5 PM.</div>
+                            <div class="text-blue-600">She <strong>will have left</strong> by then.</div>
+                            <div class="text-blue-600">They <strong>will have arrived</strong> by tomorrow.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-futureperf-light rounded-xl">
+                        <h3 class="font-bold text-futureperf mb-3">❌ Negative Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>will not have + past participle</strong></div>
+                            <div class="text-blue-600">I <strong>won't have finished</strong> by 5 PM.</div>
+                            <div class="text-blue-600">She <strong>won't have left</strong> yet.</div>
+                            <div class="text-blue-600">They <strong>won't have arrived</strong>.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-futureperf-light rounded-xl">
+                        <h3 class="font-bold text-futureperf mb-3">❓ Question Form</h3>
+                        <div class="space-y-2 text-sm">
+                            <div><strong>Will + subject + have + past participle?</strong></div>
+                            <div class="text-blue-600"><strong>Will</strong> you have finished by 5 PM?</div>
+                            <div class="text-blue-600"><strong>Will</strong> she have left by then?</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-futureperf-light rounded-xl">
+                        <h3 class="font-bold text-futureperf mb-3">🎯 When to Use</h3>
+                        <div class="space-y-1 text-sm">
+                            <div>• Action completed by future time</div>
+                            <div>• Future deadlines and goals</div>
+                            <div>• Duration up to future point</div>
+                            <div>• Future achievements</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 1: Time Deadline Challenge -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futureperf text-center mb-6">
+                    Exercise 1: Deadline Challenge ���
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futureperf-light px-4 py-2 rounded-full">
+                            <span class="text-futureperf">⏰</span>
+                            <span class="font-semibold">Progress: <span id="deadline-current">1</span>/<span id="deadline-total">8</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="deadline-container" class="mb-6">
+                        <div class="text-lg font-semibold text-gray-800 mb-6">
+                            Complete the sentence using future perfect:
+                        </div>
+                        
+                        <div class="bg-gray-100 p-6 rounded-lg mb-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-2">Situation:</div>
+                                    <div class="font-medium text-gray-800" id="deadline-situation">Loading...</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-gray-600 mb-2">Deadline:</div>
+                                    <div class="font-bold text-futureperf text-lg" id="deadline-time">Loading...</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <div class="text-lg mb-4" id="deadline-sentence">
+                                Loading sentence...
+                            </div>
+                            <select
+                                id="deadline-select"
+                                class="px-4 py-3 border-2 border-gray-300 rounded-lg text-lg focus:border-futureperf focus:outline-none"
+                            >
+                                <option value="">Choose...</option>
+                                <!-- Options will be populated by JavaScript -->
+                            </select>
+                        </div>
+                        
+                        <div id="deadline-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <div class="flex gap-3 justify-center mt-6">
+                            <button
+                                id="check-deadline"
+                                class="bg-futureperf text-futureperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                            >
+                                Check Answer ✓
+                            </button>
+                            
+                            <button
+                                id="next-deadline"
+                                class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity hidden"
+                            >
+                                Next Challenge ➡️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 2: Life Goals Planner -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futureperf text-center mb-6">
+                    Exercise 2: Life Goals Planner 🎯
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futureperf-light px-4 py-2 rounded-full">
+                            <span class="text-futureperf">🎯</span>
+                            <span class="font-semibold">Goals Set: <span id="goals-completed">0</span>/<span id="goals-total">6</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-futureperf-light p-6 rounded-xl mb-6">
+                        <h3 class="font-bold text-futureperf mb-3">🎯 Plan Your Future Achievements</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Complete these future goals using the future perfect tense. 
+                            Think about what you will have accomplished by different times in your life!
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6" id="goals-container">
+                        <!-- Goals will be generated by JavaScript -->
+                    </div>
+                    
+                    <div class="flex gap-3 justify-center mt-8">
+                        <button
+                            id="check-goals"
+                            class="bg-futureperf text-futureperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Check Goals ✓
+                        </button>
+                        
+                        <button
+                            id="reset-goals"
+                            class="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Reset Goals 🔄
+                        </button>
+                    </div>
+                    
+                    <div id="goals-feedback" class="mt-6 p-4 rounded-lg hidden">
+                        <div class="font-bold text-futureperf mb-2">Your Future Plan:</div>
+                        <div id="complete-goals" class="text-gray-700 space-y-2 text-left"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 3: By When? Matching -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futureperf text-center mb-6">
+                    Exercise 3: "By When?" Matching Game 🔗
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futureperf-light px-4 py-2 rounded-full">
+                            <span class="text-futureperf">🔗</span>
+                            <span class="font-semibold">Matched: <span id="matching-score">0</span>/<span id="matching-total">6</span></span>
+                        </div>
+                    </div>
+                    
+                    <div class="text-lg font-semibold text-gray-800 mb-6">
+                        Drag time expressions to complete the future perfect sentences!
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Time expressions -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-futureperf">Time Expressions</h3>
+                            <div class="space-y-3" id="time-expressions">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <!-- Sentences with drop zones -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-bold text-futureperf">Sentences</h3>
+                            <div class="space-y-3" id="sentence-zones">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex gap-3 justify-center mt-8">
+                        <button
+                            id="check-matching"
+                            class="bg-futureperf text-futureperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Check Matches ✓
+                        </button>
+                        
+                        <button
+                            id="reset-matching"
+                            class="bg-gray-500 text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Reset 🔄
+                        </button>
+                    </div>
+                    
+                    <div id="matching-feedback" class="mt-6 p-4 rounded-lg hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise 4: Future vs Future Perfect Quiz -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-heading font-bold text-futureperf text-center mb-6">
+                    Exercise 4: Future Simple vs Future Perfect Quiz 🤔
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-futureperf-light px-4 py-2 rounded-full">
+                            <span class="text-futureperf">🤔</span>
+                            <span class="font-semibold">Score: <span id="quiz-score">0</span>/<span id="quiz-total">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="quiz-container" class="mb-6">
+                        <div class="text-xl font-semibold text-gray-800 mb-4" id="quiz-question">
+                            Choose the correct form:
+                        </div>
+                        
+                        <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                            <div class="text-lg font-medium" id="quiz-context">Loading context...</div>
+                            <div class="text-lg mt-2" id="quiz-sentence">Loading sentence...</div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6" id="quiz-options">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="quiz-feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <button
+                            id="quiz-next"
+                            class="mt-4 bg-futureperf text-futureperf-foreground px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                        >
+                            Next Question ➡️
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Grammar Tips -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-heading font-bold text-futureperf mb-6">
+                    Grammar Tips! 💡
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gradient-to-br from-futureperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">⏰</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Completed by Future Time</h3>
+                        <p class="text-gray-600">
+                            Future perfect shows actions that will be finished before a specific future time.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-futureperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📅</div>
+                        <h3 class="font-bold text-gray-800 mb-2">With "By" and Time</h3>
+                        <p class="text-gray-600">
+                            Often used with "by": "by tomorrow", "by 5 PM", "by next year".
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-futureperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Goals and Deadlines</h3>
+                        <p class="text-gray-600">
+                            Perfect for talking about future achievements and completion deadlines.
+                        </p>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-futureperf-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📏</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Duration Until Future</h3>
+                        <p class="text-gray-600">
+                            Shows how long something will have been happening: "will have worked for 10 years".
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-futureperf-light py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-futureperf font-semibold">Keep practicing and master Future Perfect! 🎯✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Exercise 1: Deadline Challenge Data
+        const deadlineData = [
+            {
+                situation: "Sarah starts a 3-hour project at 2 PM",
+                deadline: "by 5 PM",
+                sentence: "By 5 PM, Sarah _____ her project.",
+                options: ["will finish", "will have finished", "will be finishing", "finishes"],
+                correct: "will have finished",
+                explanation: "Use future perfect for actions completed by a specific future time."
+            },
+            {
+                situation: "The movie starts at 8 PM and runs for 2 hours",
+                deadline: "by 10 PM",
+                sentence: "By 10 PM, the movie _____.",
+                options: ["will end", "will have ended", "will be ending", "ends"],
+                correct: "will have ended",
+                explanation: "The movie will be completed by 10 PM."
+            },
+            {
+                situation: "John's flight departs at 9 AM",
+                deadline: "by 9 AM",
+                sentence: "By 9 AM, John _____ at the airport.",
+                options: ["will arrive", "will have arrived", "will be arriving", "arrives"],
+                correct: "will have arrived",
+                explanation: "He must complete his arrival before the flight time."
+            },
+            {
+                situation: "The test starts at 2 PM",
+                deadline: "by 2 PM",
+                sentence: "By 2 PM, all students _____ the classroom.",
+                options: ["will enter", "will have entered", "will be entering", "enter"],
+                correct: "will have entered",
+                explanation: "Students must be in the classroom before the test starts."
+            },
+            {
+                situation: "The store closes at 6 PM",
+                deadline: "by 6 PM",
+                sentence: "By 6 PM, we _____ our shopping.",
+                options: ["will complete", "will have completed", "will be completing", "complete"],
+                correct: "will have completed",
+                explanation: "Shopping must be finished before the store closes."
+            },
+            {
+                situation: "The deadline for homework is Friday",
+                deadline: "by Friday",
+                sentence: "By Friday, I _____ all my assignments.",
+                options: ["will submit", "will have submitted", "will be submitting", "submit"],
+                correct: "will have submitted",
+                explanation: "All assignments must be turned in before the deadline."
+            },
+            {
+                situation: "The party starts at 7 PM",
+                deadline: "by 7 PM",
+                sentence: "By 7 PM, Maria _____ ready for the party.",
+                options: ["will get", "will have gotten", "will be getting", "gets"],
+                correct: "will have gotten",
+                explanation: "She must be ready before the party begins."
+            },
+            {
+                situation: "The train leaves at 11 AM",
+                deadline: "by 11 AM",
+                sentence: "By 11 AM, we _____ our tickets.",
+                options: ["will buy", "will have bought", "will be buying", "buy"],
+                correct: "will have bought",
+                explanation: "Tickets must be purchased before the train departs."
+            }
+        ];
+
+        // Exercise 2: Life Goals Data
+        const goalsData = [
+            {
+                timeframe: "By age 25",
+                goal: "I _____ _____ _____ (graduate) from university.",
+                answer: "will have graduated",
+                verb: "graduate"
+            },
+            {
+                timeframe: "By next year",
+                goal: "I _____ _____ _____ (learn) to speak Spanish fluently.",
+                answer: "will have learned",
+                verb: "learn"
+            },
+            {
+                timeframe: "By age 30",
+                goal: "I _____ _____ _____ (save) enough money to buy a house.",
+                answer: "will have saved",
+                verb: "save"
+            },
+            {
+                timeframe: "By the end of this year",
+                goal: "I _____ _____ _____ (read) 20 books.",
+                answer: "will have read",
+                verb: "read"
+            },
+            {
+                timeframe: "By age 40",
+                goal: "I _____ _____ _____ (visit) 10 different countries.",
+                answer: "will have visited",
+                verb: "visit"
+            },
+            {
+                timeframe: "By retirement",
+                goal: "I _____ _____ _____ (work) for 40 years.",
+                answer: "will have worked",
+                verb: "work"
+            }
+        ];
+
+        // Exercise 3: Matching Data
+        const matchingData = [
+            {
+                expression: "by tomorrow",
+                sentence: "She will have finished the report _____.",
+                correct: "by tomorrow"
+            },
+            {
+                expression: "by 6 PM",
+                sentence: "We will have arrived home _____.",
+                correct: "by 6 PM"
+            },
+            {
+                expression: "by next month",
+                sentence: "They will have moved to their new house _____.",
+                correct: "by next month"
+            },
+            {
+                expression: "by the time you call",
+                sentence: "I will have left the office _____.",
+                correct: "by the time you call"
+            },
+            {
+                expression: "by Christmas",
+                sentence: "We will have decorated the entire house _____.",
+                correct: "by Christmas"
+            },
+            {
+                expression: "by midnight",
+                sentence: "The party will have ended _____.",
+                correct: "by midnight"
+            }
+        ];
+
+        // Exercise 4: Quiz Data
+        const quizData = [
+            {
+                context: "Talking about a deadline:",
+                sentence: "I _____ my homework by 9 PM tonight.",
+                options: ["will finish", "will have finished"],
+                correct: 1,
+                explanation: "Use future perfect for completion by a specific time."
+            },
+            {
+                context: "Making a simple future plan:",
+                sentence: "Tomorrow I _____ to the store.",
+                options: ["will go", "will have gone"],
+                correct: 0,
+                explanation: "Use future simple for basic future actions."
+            },
+            {
+                context: "Talking about duration until a future point:",
+                sentence: "By 2025, we _____ here for 10 years.",
+                options: ["will live", "will have lived"],
+                correct: 1,
+                explanation: "Use future perfect for duration up to a future time."
+            },
+            {
+                context: "Making a prediction:",
+                sentence: "It _____ tomorrow.",
+                options: ["will rain", "will have rained"],
+                correct: 0,
+                explanation: "Use future simple for basic predictions."
+            },
+            {
+                context: "Talking about completion before another future action:",
+                sentence: "She _____ dinner before the guests arrive.",
+                options: ["will cook", "will have cooked"],
+                correct: 1,
+                explanation: "Use future perfect for completion before another future event."
+            }
+        ];
+
+        // Exercise 1: Deadline Challenge Logic
+        let deadlineIndex = 0;
+
+        function loadDeadlineChallenge() {
+            if (deadlineIndex >= deadlineData.length) {
+                deadlineIndex = 0;
+            }
+            
+            const challenge = deadlineData[deadlineIndex];
+            document.getElementById('deadline-situation').textContent = challenge.situation;
+            document.getElementById('deadline-time').textContent = challenge.deadline;
+            document.getElementById('deadline-sentence').textContent = challenge.sentence;
+            
+            const select = document.getElementById('deadline-select');
+            select.innerHTML = '<option value="">Choose...</option>';
+            
+            challenge.options.forEach(option => {
+                const optionEl = document.createElement('option');
+                optionEl.value = option;
+                optionEl.textContent = option;
+                select.appendChild(optionEl);
+            });
+            
+            document.getElementById('deadline-feedback').classList.add('hidden');
+            document.getElementById('next-deadline').classList.add('hidden');
+            document.getElementById('deadline-current').textContent = deadlineIndex + 1;
+        }
+
+        function checkDeadlineAnswer() {
+            const userAnswer = document.getElementById('deadline-select').value;
+            const correctAnswer = deadlineData[deadlineIndex].correct;
+            const feedbackEl = document.getElementById('deadline-feedback');
+            
+            if (userAnswer === correctAnswer) {
+                feedbackEl.textContent = `🎉 Correct! ${deadlineData[deadlineIndex].explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+                document.getElementById('next-deadline').classList.remove('hidden');
+            } else if (userAnswer === '') {
+                feedbackEl.textContent = 'Please select an answer first!';
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-yellow-100 text-yellow-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${correctAnswer}". ${deadlineData[deadlineIndex].explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+        }
+
+        function nextDeadlineChallenge() {
+            deadlineIndex++;
+            loadDeadlineChallenge();
+        }
+
+        // Exercise 2: Life Goals Logic
+        function setupGoalsExercise() {
+            const container = document.getElementById('goals-container');
+            container.innerHTML = '';
+            
+            goalsData.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'bg-gray-100 p-4 rounded-lg text-left';
+                
+                const goalText = item.goal.replace(/_____ _____ _____/, '');
+                const input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'goals-input mx-2 px-3 py-2 border-2 border-gray-300 rounded w-48 text-center';
+                input.placeholder = `will have ${item.verb}`;
+                input.dataset.answer = item.answer;
+                
+                div.innerHTML = `
+                    <div class="font-semibold text-futureperf mb-2">${item.timeframe}</div>
+                    <div class="text-lg">${goalText}</div>
+                `;
+                
+                const textParts = item.goal.split('_____ _____ _____');
+                const textNode = document.createElement('div');
+                textNode.className = 'text-lg';
+                textNode.innerHTML = textParts[0];
+                textNode.appendChild(input);
+                textNode.innerHTML += textParts[1] || '';
+                
+                div.appendChild(textNode);
+                container.appendChild(div);
+            });
+        }
+
+        function checkGoalsAnswers() {
+            const inputs = document.querySelectorAll('.goals-input');
+            let correct = 0;
+            let goalsList = [];
+            
+            inputs.forEach((input, index) => {
+                const userAnswer = input.value.trim().toLowerCase();
+                const correctAnswer = input.dataset.answer.toLowerCase();
+                
+                if (userAnswer === correctAnswer) {
+                    input.classList.remove('border-red-500');
+                    input.classList.add('border-green-500', 'bg-green-50');
+                    correct++;
+                } else {
+                    input.classList.remove('border-green-500');
+                    input.classList.add('border-red-500', 'bg-red-50');
+                }
+                
+                const completedGoal = goalsData[index].goal.replace(/_____ _____ _____/, input.dataset.answer);
+                goalsList.push(`${goalsData[index].timeframe}: ${completedGoal}`);
+            });
+            
+            document.getElementById('goals-completed').textContent = correct;
+            
+            if (correct > 0) {
+                document.getElementById('goals-feedback').classList.remove('hidden');
+                const goalsDisplay = document.getElementById('complete-goals');
+                goalsDisplay.innerHTML = goalsList.map(goal => `<div>${goal}</div>`).join('');
+                document.getElementById('goals-feedback').className = 'mt-6 p-4 rounded-lg bg-blue-100 text-blue-800';
+            }
+        }
+
+        function resetGoalsExercise() {
+            const inputs = document.querySelectorAll('.goals-input');
+            inputs.forEach(input => {
+                input.value = '';
+                input.classList.remove('border-red-500', 'border-green-500', 'bg-red-50', 'bg-green-50');
+            });
+            document.getElementById('goals-completed').textContent = '0';
+            document.getElementById('goals-feedback').classList.add('hidden');
+        }
+
+        // Exercise 3: Matching Logic
+        function setupMatchingExercise() {
+            const expressionsContainer = document.getElementById('time-expressions');
+            const sentencesContainer = document.getElementById('sentence-zones');
+            
+            expressionsContainer.innerHTML = '';
+            sentencesContainer.innerHTML = '';
+            
+            // Create draggable time expressions
+            matchingData.forEach((item, index) => {
+                const expr = document.createElement('div');
+                expr.className = 'bg-futureperf-light p-3 rounded-lg cursor-move border-2 border-futureperf text-center font-semibold';
+                expr.textContent = item.expression;
+                expr.draggable = true;
+                expr.dataset.expression = item.expression;
+                
+                expr.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.setData('text/plain', item.expression);
+                });
+                
+                expressionsContainer.appendChild(expr);
+            });
+            
+            // Create drop zones
+            matchingData.forEach((item, index) => {
+                const zone = document.createElement('div');
+                zone.className = 'bg-gray-100 p-4 rounded-lg border-2 border-dashed border-gray-300';
+                zone.innerHTML = `
+                    <div class="font-medium mb-2">${item.sentence}</div>
+                    <div class="drop-zone p-2 bg-white rounded border-2 border-dashed border-gray-400 min-h-8 flex items-center justify-center text-gray-500" data-correct="${item.correct}">
+                        Drop here
+                    </div>
+                `;
+                
+                const dropZone = zone.querySelector('.drop-zone');
+                
+                dropZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    dropZone.classList.add('border-futureperf', 'bg-futureperf-light');
+                });
+                
+                dropZone.addEventListener('dragleave', () => {
+                    dropZone.classList.remove('border-futureperf', 'bg-futureperf-light');
+                });
+                
+                dropZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    const droppedText = e.dataTransfer.getData('text/plain');
+                    dropZone.textContent = droppedText;
+                    dropZone.classList.remove('border-futureperf', 'bg-futureperf-light');
+                    dropZone.classList.add('border-gray-400', 'bg-white');
+                });
+                
+                sentencesContainer.appendChild(zone);
+            });
+        }
+
+        function checkMatchingAnswers() {
+            const dropZones = document.querySelectorAll('.drop-zone');
+            let correct = 0;
+            
+            dropZones.forEach((zone, index) => {
+                const userAnswer = zone.textContent.trim();
+                const correctAnswer = zone.dataset.correct;
+                
+                if (userAnswer === correctAnswer) {
+                    zone.classList.remove('border-red-500', 'bg-red-50');
+                    zone.classList.add('border-green-500', 'bg-green-50');
+                    correct++;
+                } else if (userAnswer !== 'Drop here') {
+                    zone.classList.remove('border-green-500', 'bg-green-50');
+                    zone.classList.add('border-red-500', 'bg-red-50');
+                }
+            });
+            
+            document.getElementById('matching-score').textContent = correct;
+            
+            const feedbackEl = document.getElementById('matching-feedback');
+            if (correct === matchingData.length) {
+                feedbackEl.textContent = '🎉 Perfect! All time expressions are correctly matched!';
+                feedbackEl.className = 'mt-6 p-4 rounded-lg bg-green-100 text-green-800 font-semibold';
+            } else {
+                feedbackEl.textContent = `Good try! You got ${correct} out of ${matchingData.length} correct.`;
+                feedbackEl.className = 'mt-6 p-4 rounded-lg bg-yellow-100 text-yellow-800 font-semibold';
+            }
+            feedbackEl.classList.remove('hidden');
+        }
+
+        function resetMatchingExercise() {
+            setupMatchingExercise();
+            document.getElementById('matching-score').textContent = '0';
+            document.getElementById('matching-feedback').classList.add('hidden');
+        }
+
+        // Exercise 4: Quiz Logic
+        let quizIndex = 0;
+        let quizScore = 0;
+        let quizTotal = 0;
+
+        function loadQuizQuestion() {
+            if (quizIndex >= quizData.length) {
+                quizIndex = 0;
+            }
+            
+            const question = quizData[quizIndex];
+            document.getElementById('quiz-context').textContent = question.context;
+            document.getElementById('quiz-sentence').textContent = question.sentence;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-futureperf hover:bg-futureperf-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkQuizAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('quiz-feedback').classList.add('hidden');
+        }
+
+        function checkQuizAnswer(selectedIndex) {
+            const question = quizData[quizIndex];
+            quizTotal++;
+            document.getElementById('quiz-total').textContent = quizTotal;
+            
+            const feedbackEl = document.getElementById('quiz-feedback');
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                quizScore++;
+                document.getElementById('quiz-score').textContent = quizScore;
+                feedbackEl.textContent = `🎉 Correct! ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${question.options[question.correct]}". ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            const buttons = document.querySelectorAll('#quiz-options button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+        }
+
+        function nextQuizQuestion() {
+            quizIndex++;
+            loadQuizQuestion();
+        }
+
+        // Event Listeners
+        document.getElementById('check-deadline').addEventListener('click', checkDeadlineAnswer);
+        document.getElementById('next-deadline').addEventListener('click', nextDeadlineChallenge);
+        document.getElementById('check-goals').addEventListener('click', checkGoalsAnswers);
+        document.getElementById('reset-goals').addEventListener('click', resetGoalsExercise);
+        document.getElementById('check-matching').addEventListener('click', checkMatchingAnswers);
+        document.getElementById('reset-matching').addEventListener('click', resetMatchingExercise);
+        document.getElementById('quiz-next').addEventListener('click', nextQuizQuestion);
+
+        // Initialize all exercises
+        loadDeadlineChallenge();
+        setupGoalsExercise();
+        setupMatchingExercise();
+        loadQuizQuestion();
+    </script>
+</body>
+</html>

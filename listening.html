@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening Training - Improve Your English Listening Skills</title>
+    <meta name="description" content="Interactive listening comprehension training with audio exercises, quizzes, and skill development activities." />
+    <meta name="keywords" content="listening training, English listening, comprehension, audio exercises, language learning" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'listening': '#3b82f6',
+                        'listening-light': '#eff6ff',
+                        'listening-foreground': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-listening-light to-white text-gray-700 font-sans">
+    <!-- Header Section -->
+    <header class="bg-listening-light py-12 text-center">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold text-listening mb-4">🎧 Listening Training</h1>
+            <p class="text-xl text-gray-700 max-w-2xl mx-auto">
+                Improve your English listening skills with interactive audio exercises and comprehension activities!
+            </p>
+        </div>
+    </header>
+
+    <!-- Audio Player Section -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-listening text-center mb-6">
+                    🎵 Audio Exercise Player
+                </h2>
+                
+                <div class="bg-listening-light rounded-xl p-6 mb-6">
+                    <div class="text-center mb-4">
+                        <div class="text-6xl mb-4">🎧</div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2" id="currentTitle">Listen to this conversation</h3>
+                        <p class="text-gray-600 mb-4" id="currentDescription">A dialogue between two friends discussing weekend plans</p>
+                    </div>
+                    
+                    <!-- Custom Audio Player -->
+                    <div class="bg-white rounded-lg p-4 mb-4">
+                        <audio id="audioPlayer" class="w-full" controls>
+                            <source src="#" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        
+                        <!-- Audio Controls -->
+                        <div class="flex items-center justify-center gap-4 mt-4">
+                            <button id="playPauseBtn" class="bg-listening text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                ▶️ Play
+                            </button>
+                            <button id="replayBtn" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
+                                🔄 Replay
+                            </button>
+                            <button id="slowBtn" class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors">
+                                🐌 Slow
+                            </button>
+                        </div>
+                        
+                        <!-- Speed Control -->
+                        <div class="mt-4 text-center">
+                            <label class="text-sm text-gray-600">Playback Speed:</label>
+                            <select id="speedControl" class="ml-2 px-2 py-1 border rounded">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>1x</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Listen Counter -->
+                    <div class="text-center text-sm text-gray-600">
+                        Times played: <span id="playCount" class="font-semibold">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listening Comprehension Quiz -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-listening text-center mb-6">
+                    📝 Comprehension Questions
+                </h2>
+                
+                <div class="text-center mb-8">
+                    <div class="flex items-center justify-center gap-4 mb-6">
+                        <div class="flex items-center space-x-2 bg-listening-light px-4 py-2 rounded-full">
+                            <span class="text-listening">🏆</span>
+                            <span class="font-semibold">Score: <span id="score">0</span>/<span id="totalQuestions">0</span></span>
+                        </div>
+                    </div>
+                    
+                    <div id="quizContainer" class="mb-6">
+                        <div class="text-xl font-semibold text-gray-800 mb-4" id="questionText">
+                            Listen to the audio and answer the questions:
+                        </div>
+                        
+                        <div class="text-lg mb-6 p-4 bg-gray-100 rounded-lg" id="questionContent">
+                            Click "Start Exercise" to begin the listening activity
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4 mb-6" id="optionsContainer">
+                            <!-- Options will be generated by JavaScript -->
+                        </div>
+                        
+                        <div id="feedback" class="mt-4 p-3 rounded-lg font-semibold hidden"></div>
+                        
+                        <div class="flex gap-4 justify-center">
+                            <button id="startExerciseBtn" class="bg-listening text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                                🎯 Start Exercise
+                            </button>
+                            <button id="nextQuestionBtn" class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors hidden">
+                                Next Question ➡️
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Listening Skills Guide -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-listening text-center mb-6">
+                    🎯 Listening Skills Development
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-listening-light rounded-xl">
+                        <h3 class="font-bold text-listening mb-3">🔍 Active Listening</h3>
+                        <div class="space-y-2 text-sm">
+                            <div>• Focus on the speaker completely</div>
+                            <div>• Listen for main ideas first</div>
+                            <div>• Don't translate word by word</div>
+                            <div>• Use context clues</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-listening-light rounded-xl">
+                        <h3 class="font-bold text-listening mb-3">📚 Practice Strategies</h3>
+                        <div class="space-y-2 text-sm">
+                            <div>• Listen multiple times</div>
+                            <div>• Start with slower speeds</div>
+                            <div>• Focus on keywords</div>
+                            <div>• Practice daily for 15-30 minutes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-listening-light rounded-xl">
+                        <h3 class="font-bold text-listening mb-3">🎵 Audio Types</h3>
+                        <div class="space-y-2 text-sm">
+                            <div>• Conversations & Dialogues</div>
+                            <div>• News & Announcements</div>
+                            <div>• Stories & Narratives</div>
+                            <div>• Instructions & Directions</div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6 bg-listening-light rounded-xl">
+                        <h3 class="font-bold text-listening mb-3">💡 Tips for Success</h3>
+                        <div class="space-y-2 text-sm">
+                            <div>• Predict what you'll hear</div>
+                            <div>• Take notes while listening</div>
+                            <div>• Don't panic if you miss words</div>
+                            <div>• Practice with different accents</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Difficulty Levels -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-listening text-center mb-6">
+                    📊 Difficulty Levels
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center p-6 bg-gradient-to-br from-green-100 to-white rounded-xl cursor-pointer hover:shadow-lg transition-shadow" onclick="setDifficulty('beginner')">
+                        <div class="text-4xl mb-3">🟢</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Beginner</h3>
+                        <div class="text-sm space-y-1">
+                            <div>• Slow, clear speech</div>
+                            <div>• Simple vocabulary</div>
+                            <div>• Short conversations</div>
+                            <div>• Basic topics</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-gradient-to-br from-yellow-100 to-white rounded-xl cursor-pointer hover:shadow-lg transition-shadow" onclick="setDifficulty('intermediate')">
+                        <div class="text-4xl mb-3">🟡</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Intermediate</h3>
+                        <div class="text-sm space-y-1">
+                            <div>• Normal speech speed</div>
+                            <div>• Mixed vocabulary</div>
+                            <div>• Longer dialogues</div>
+                            <div>• Various topics</div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-gradient-to-br from-red-100 to-white rounded-xl cursor-pointer hover:shadow-lg transition-shadow" onclick="setDifficulty('advanced')">
+                        <div class="text-4xl mb-3">🔴</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Advanced</h3>
+                        <div class="text-sm space-y-1">
+                            <div>• Fast, natural speech</div>
+                            <div>• Complex vocabulary</div>
+                            <div>• Accents & slang</div>
+                            <div>• Professional topics</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <div class="inline-flex items-center space-x-2 bg-listening-light px-4 py-2 rounded-full">
+                        <span class="text-listening font-semibold">Current Level:</span>
+                        <span id="currentLevel" class="font-bold">Beginner</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercise Types -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-listening text-center mb-6">
+                    🎪 Exercise Types
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="p-6 bg-gradient-to-br from-listening-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🗣️</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Conversations</h3>
+                        <p class="text-gray-600 mb-3">
+                            Listen to dialogues between people in everyday situations.
+                        </p>
+                        <button class="bg-listening text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                            Practice Now
+                        </button>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-listening-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📰</div>
+                        <h3 class="font-bold text-gray-800 mb-2">News Reports</h3>
+                        <p class="text-gray-600 mb-3">
+                            Improve comprehension with news stories and announcements.
+                        </p>
+                        <button class="bg-listening text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                            Practice Now
+                        </button>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-listening-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">📚</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Stories</h3>
+                        <p class="text-gray-600 mb-3">
+                            Listen to short stories and answer comprehension questions.
+                        </p>
+                        <button class="bg-listening text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                            Practice Now
+                        </button>
+                    </div>
+                    
+                    <div class="p-6 bg-gradient-to-br from-listening-light to-white rounded-xl">
+                        <div class="text-4xl mb-3">🏫</div>
+                        <h3 class="font-bold text-gray-800 mb-2">Instructions</h3>
+                        <p class="text-gray-600 mb-3">
+                            Follow spoken directions and complete listening tasks.
+                        </p>
+                        <button class="bg-listening text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700 transition-colors">
+                            Practice Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Tracking -->
+    <section class="py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-2xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-bold text-listening mb-6">
+                    📈 Your Progress
+                </h2>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-listening-light rounded-xl">
+                        <div class="text-3xl mb-2">⏱️</div>
+                        <h3 class="font-bold text-gray-800 mb-1">Practice Time</h3>
+                        <div class="text-2xl font-bold text-listening" id="practiceTime">0 min</div>
+                    </div>
+                    
+                    <div class="p-4 bg-listening-light rounded-xl">
+                        <div class="text-3xl mb-2">✅</div>
+                        <h3 class="font-bold text-gray-800 mb-1">Completed</h3>
+                        <div class="text-2xl font-bold text-listening" id="completedExercises">0</div>
+                    </div>
+                    
+                    <div class="p-4 bg-listening-light rounded-xl">
+                        <div class="text-3xl mb-2">🎯</div>
+                        <h3 class="font-bold text-gray-800 mb-1">Accuracy</h3>
+                        <div class="text-2xl font-bold text-listening" id="accuracy">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-listening-light py-8 text-center">
+        <div class="container mx-auto px-4">
+            <p class="text-listening font-semibold">Keep practicing and improve your listening skills! 🎧✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample audio data (using text-to-speech placeholder URLs or sample audio)
+        const exercises = {
+            beginner: [
+                {
+                    title: "Ordering Food at a Restaurant",
+                    description: "Listen to a customer ordering food",
+                    audioUrl: "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmMbBTaJzuO7dyMFKITM8duOOQcrm9/71aMkByOH2O/EZSkHNZPQ7LF2KgYxmNbzzKc2ByN61OZQF",
+                    questions: [
+                        {
+                            question: "What type of restaurant is this?",
+                            options: ["Fast food", "Italian", "Chinese", "Mexican"],
+                            correct: 1,
+                            explanation: "The customer mentions pasta, indicating an Italian restaurant"
+                        }
+                    ]
+                }
+            ],
+            intermediate: [
+                {
+                    title: "Job Interview Conversation",
+                    description: "A professional job interview dialogue",
+                    audioUrl: "#", // Placeholder
+                    questions: [
+                        {
+                            question: "What position is the candidate applying for?",
+                            options: ["Manager", "Developer", "Designer", "Analyst"],
+                            correct: 1,
+                            explanation: "The candidate mentions programming experience"
+                        }
+                    ]
+                }
+            ],
+            advanced: [
+                {
+                    title: "Business Meeting Discussion",
+                    description: "Complex business strategy meeting",
+                    audioUrl: "#https://www.youtube.com/watch?v=Zh3CMg6-gaw.mp3", // Placeholder
+                    questions: [
+                        {
+                            question: "What is the main topic of discussion?",
+                            options: ["Budget", "Marketing", "Product Launch", "Hiring"],
+                            correct: 2,
+                            explanation: "The meeting focuses on launching a new product"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        let currentDifficulty = 'beginner';
+        let currentExerciseIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let totalQuestions = 0;
+        let playCount = 0;
+        let practiceStartTime = Date.now();
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const replayBtn = document.getElementById('replayBtn');
+        const slowBtn = document.getElementById('slowBtn');
+        const speedControl = document.getElementById('speedControl');
+
+        // Audio Player Controls
+        function initializeAudioPlayer() {
+            playPauseBtn.addEventListener('click', function() {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    playPauseBtn.textContent = '⏸️ Pause';
+                    playCount++;
+                    document.getElementById('playCount').textContent = playCount;
+                } else {
+                    audioPlayer.pause();
+                    playPauseBtn.textContent = '▶️ Play';
+                }
+            });
+
+            replayBtn.addEventListener('click', function() {
+                audioPlayer.currentTime = 0;
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸️ Pause';
+                playCount++;
+                document.getElementById('playCount').textContent = playCount;
+            });
+
+            slowBtn.addEventListener('click', function() {
+                audioPlayer.playbackRate = 0.75;
+                audioPlayer.play();
+                playPauseBtn.textContent = '⏸️ Pause';
+            });
+
+            speedControl.addEventListener('change', function() {
+                audioPlayer.playbackRate = parseFloat(this.value);
+            });
+
+            audioPlayer.addEventListener('ended', function() {
+                playPauseBtn.textContent = '▶️ Play';
+            });
+        }
+
+        // Set Difficulty Level
+        function setDifficulty(level) {
+            currentDifficulty = level;
+            currentExerciseIndex = 0;
+            currentQuestionIndex = 0;
+            document.getElementById('currentLevel').textContent = level.charAt(0).toUpperCase() + level.slice(1);
+            loadExercise();
+        }
+
+        // Load Exercise
+        function loadExercise() {
+            const exercise = exercises[currentDifficulty][currentExerciseIndex];
+            if (!exercise) return;
+
+            document.getElementById('currentTitle').textContent = exercise.title;
+            document.getElementById('currentDescription').textContent = exercise.description;
+            
+            // Since we don't have real audio files, we'll simulate
+            document.getElementById('questionContent').textContent = 
+                `Ready to practice "${exercise.title}"? Click Start Exercise to begin!`;
+            
+            // Reset play count
+            playCount = 0;
+            document.getElementById('playCount').textContent = playCount;
+        }
+
+        // Start Exercise
+        function startExercise() {
+            const exercise = exercises[currentDifficulty][currentExerciseIndex];
+            if (!exercise) return;
+
+            // Show first question
+            loadQuestion();
+            document.getElementById('startExerciseBtn').classList.add('hidden');
+        }
+
+        // Load Question
+        function loadQuestion() {
+            const exercise = exercises[currentDifficulty][currentExerciseIndex];
+            const question = exercise.questions[currentQuestionIndex];
+            
+            if (!question) {
+                // No more questions, move to next exercise or complete
+                completeExercise();
+                return;
+            }
+
+            document.getElementById('questionContent').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'bg-white border-2 border-gray-300 p-4 rounded-lg hover:border-listening hover:bg-listening-light transition-colors text-left';
+                button.textContent = option;
+                button.addEventListener('click', () => checkAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('feedback').classList.add('hidden');
+        }
+
+        // Check Answer
+        function checkAnswer(selectedIndex) {
+            const exercise = exercises[currentDifficulty][currentExerciseIndex];
+            const question = exercise.questions[currentQuestionIndex];
+            
+            totalQuestions++;
+            document.getElementById('totalQuestions').textContent = totalQuestions;
+            
+            const feedbackEl = document.getElementById('feedback');
+            const isCorrect = selectedIndex === question.correct;
+            
+            if (isCorrect) {
+                score++;
+                document.getElementById('score').textContent = score;
+                feedbackEl.textContent = `🎉 Correct! ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-green-100 text-green-800';
+            } else {
+                feedbackEl.textContent = `❌ Wrong. Correct answer: "${question.options[question.correct]}". ${question.explanation}`;
+                feedbackEl.className = 'mt-4 p-3 rounded-lg font-semibold bg-red-100 text-red-800';
+            }
+            
+            feedbackEl.classList.remove('hidden');
+            
+            // Disable option buttons
+            const buttons = document.querySelectorAll('#optionsContainer button');
+            buttons.forEach(button => {
+                button.disabled = true;
+                button.classList.add('opacity-50');
+            });
+
+            // Show next question button
+            document.getElementById('nextQuestionBtn').classList.remove('hidden');
+        }
+
+        // Next Question
+        function nextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion();
+            document.getElementById('nextQuestionBtn').classList.add('hidden');
+        }
+
+        // Complete Exercise
+        function completeExercise() {
+            document.getElementById('questionContent').textContent = 
+                '🎉 Exercise completed! Great job improving your listening skills!';
+            document.getElementById('optionsContainer').innerHTML = '';
+            document.getElementById('startExerciseBtn').classList.remove('hidden');
+            document.getElementById('startExerciseBtn').textContent = '🎯 Start New Exercise';
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Update Progress
+        function updateProgress() {
+            const practiceTime = Math.floor((Date.now() - practiceStartTime) / 60000);
+            document.getElementById('practiceTime').textContent = `${practiceTime} min`;
+            
+            const completedExercises = parseInt(document.getElementById('completedExercises').textContent) + 1;
+            document.getElementById('completedExercises').textContent = completedExercises;
+            
+            const accuracy = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
+            document.getElementById('accuracy').textContent = `${accuracy}%`;
+        }
+
+        // Event Listeners
+        document.getElementById('startExerciseBtn').addEventListener('click', startExercise);
+        document.getElementById('nextQuestionBtn').addEventListener('click', nextQuestion);
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAudioPlayer();
+            loadExercise();
+        });
+    </script>
+</body>
+</html>
