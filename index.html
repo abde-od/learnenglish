@@ -607,86 +607,106 @@
         }
 
         /* Enhanced Mobile Responsiveness for Navigation */
-        @media (max-width: 768px) {
-            .nav {
-                padding: 10px 15px;
-            }
-            
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 20px;
-                border-radius: 0 0 20px 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                transform: translateY(-20px);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links > li {
-                margin: 10px 0;
-                width: 100%;
-            }
-            
-            .nav-links > li > a {
-                justify-content: center;
-                color: #333;
-                background: rgba(255, 255, 255, 0.8);
-                width: 100%;
-            }
-            
-            .nav-links li ul {
-                position: static;
-                transform: none;
-                background: rgba(255, 255, 255, 0.9);
-                margin-top: 10px;
-                border-radius: 15px;
-                display: block;
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links li ul::before {
-                display: none;
-            }
-            
-            .container {
-                padding: 80px 15px 20px;
-            }
-            
-            .number-display {
-                font-size: 4rem;
-            }
-            
-            .number-words, .shape-name {
-                font-size: 2rem;
-            }
-            
-            .controls {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .color-option {
-                width: 60px;
-                height: 60px;
-            }
-        }
+                  @media (max-width: 768px) {
+    .nav {
+        padding: 10px 15px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transform: translateY(-20px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links > li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .nav-links > li > a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        color: #333;
+        background: rgba(255, 255, 255, 0.8);
+        width: 100%;
+        border-radius: 10px;
+    }
+
+    .nav-links li ul {
+        position: static;
+        transform: none;
+        background: rgba(255, 255, 255, 0.9);
+        margin-top: 10px;
+        border-radius: 15px;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        padding-left: 15px;
+    }
+
+    .nav-links li ul::before {
+        display: none;
+    }
+
+    .container {
+        padding: 100px 15px 20px;
+    }
+
+    .number-display {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    .number-words,
+    .shape-name {
+        font-size: 1.6rem;
+        text-align: center;
+    }
+
+    .controls {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .color-option {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 5px auto;
+    }
+}
+
 
         /*li lu */
 
@@ -1255,5 +1275,89 @@
         margin-left: 5px;
     }
 </style>
+
+
+
+
+   @media (max-width: 768px) {
+            .nav {
+                padding: 10px 15px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links > li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .nav-links > li > a {
+                justify-content: center;
+                color: #333;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+            }
+            
+            .nav-links li ul {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.9);
+                margin-top: 10px;
+                border-radius: 15px;
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li ul::before {
+                display: none;
+            }
+            
+            .container {
+                padding: 80px 15px 20px;
+            }
+            
+            .number-display {
+                font-size: 4rem;
+            }
+            
+            .number-words, .shape-name {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .color-option {
+                width: 60px;
+                height: 60px;
+            }
+        }
 
 >
