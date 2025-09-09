@@ -910,12 +910,36 @@
         <div class="quick-jump" id="themes">
             <h3>🎨 Choose Your Favorite Colors!</h3>
             <div class="color-picker">
-                <div class="color-option" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);" onclick="changeTheme('linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)')"></div>
-                <div class="color-option" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);" onclick="changeTheme('linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)')"></div>
-                <div class="color-option" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);" onclick="changeTheme('linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)')"></div>
-                <div class="color-option" style="background: linear-gradient(135deg, #a8caba 0%, #5d4e75 100%);" onclick="changeTheme('linear-gradient(135deg, #a8caba 0%, #5d4e75 100%)')"></div>
-                <div class="color-option" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);" onclick="changeTheme('linear-gradient(135deg, #667eea 0%, #764ba2 100%)')"></div>
-                <div class="color-option" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" onclick="changeTheme('linear-gradient(135deg, #f093fb 0%, #f5576c 100%)')"></div>
+                <div class="color-option" 
+                    style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);" 
+                       onclick="changeTheme('linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)', event)">
+                                </div>
+
+                <div class="color-option"
+     style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"
+     onclick="changeTheme('linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)', event)">
+</div>
+
+                <div class="color-option"
+     style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"
+     onclick="changeTheme('linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)', event)">
+</div>
+
+                <div class="color-option"
+     style="background: linear-gradient(135deg, #a8caba 0%, #5d4e75 100%);"
+     onclick="changeTheme('linear-gradient(135deg, #a8caba 0%, #5d4e75 100%)', event)">
+</div>
+
+                <div class="color-option"
+     style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"
+     onclick="changeTheme('linear-gradient(135deg, #667eea 0%, #764ba2 100%)', event)">
+</div>
+
+               <div class="color-option"
+     style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"
+     onclick="changeTheme('linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', event)">
+</div>
+
             </div>
         </div>
     </div>
@@ -1102,12 +1126,15 @@
             }, 300);
         }
 
-        function changeTheme(gradient) {
-            document.body.style.background = gradient;
-            
-            // Add sparkle effect
-            createSparkles();
-        }
+       function changeTheme(gradient, event) {
+    if (event) event.preventDefault(); // منع أي سلوك افتراضي (مثل الانتقال أو التمرير)
+
+    document.body.style.background = gradient;
+
+    // إضافة تأثير النجوم
+    createSparkles();
+}
+
 
         function createSparkles() {
             for (let i = 0; i < 10; i++) {
@@ -1195,12 +1222,12 @@
                 toggle.classList.remove('active');
             }
         });
-    </script>
+     </script>
 </body>
 </html>
 
 
-<style>
+<!--<style>
     /* النمط الأساسي للقوائم الفرعية */
     li ul {
         display: none;
