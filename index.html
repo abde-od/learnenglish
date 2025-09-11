@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: grey; /*linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); */
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%); 
             overflow-x: hidden;
             color: white;
             min-height: 100vh;
@@ -769,17 +769,101 @@
   cursor: pointer;
 }
 
+
+
+
+@media (max-width: 768px) {
+            .nav {
+                padding: 10px 15px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links > li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .nav-links > li > a {
+                justify-content: center;
+                color: #333;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+            }
+            
+            .nav-links li ul {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.9);
+                margin-top: 10px;
+                border-radius: 15px;
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li ul::before {
+                display: none;
+            }
+            
+            .container {
+                padding: 80px 15px 20px;
+            }
+            
+            .number-display {
+                font-size: 4rem;
+            }
+            
+            .number-words, .shape-name {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .color-option {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <!-- Floating Background Elements 
+    <!-- Floating Background Elements -->
     <div class="floating-elements">
         <div class="floating-shape">🌟</div>
         <div class="floating-shape">🎈</div>
         <div class="floating-shape">🌈</div>
         <div class="floating-shape">⭐</div>
         <div class="floating-shape">🎨</div>
-    </div>  -->
+    </div>  
 
     <!-- Enhanced Navigation with mobile menu toggle -->
     <nav class="nav">
@@ -794,12 +878,11 @@
             
             <ul class="nav-links" id="navLinks">
                 <li>
-    <a href="#numbers">
-        🔢 Courses
-        <svg class="dropdown-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-        </svg>
-    </a>
+    <a href="#numbers" onclick="event.preventDefault(); setMode('numbers')">
+    🔢 Courses
+    <svg class="dropdown-arrow" ...></svg>
+</a>
+
     <ul>
         <li> <button type="button" onclick="setMode('numbers')">📚 Numbers</button></li>
 
@@ -813,10 +896,10 @@
         <li><a href="animals.html">🐈 Animals </a></li>
         <li><a href="jobs.html">👨‍🔧 jobs </a></li>
         <li><a href="seasons.html">🍂 seasons </a></li>
-        <li><a href="clothes.html">🚖 Clothes </a></li>
-          <li><a href="vegetables.html">🚖 vegetables </a></li>
-            <li><a href="fruits.html">🚖 fruits </a></li>
-              <li><a href="countries.html">🚖 countries </a></li>
+        <li><a href="clothes.html">👗 Clothes </a></li>
+          <li><a href="vegetables.html">🍆 vegetables </a></li>
+            <li><a href="fruits.html">🍎 fruits </a></li>
+              <li><a href="countries.html">🌍 countries </a></li>
 
           
           
@@ -832,7 +915,7 @@
                     </a>
                     <ul>
                         <li><a href="presentsimple.html" >present simple</a></li>
-                        <li><a href="present_continues.html" >🎨  present Continuous</a></li>
+                        <li><a href="present_continues.html" >  present Continuous</a></li>
                         <li><a href="present_perfect.html">present perfect</a></li>
 
                         <li><a href="pastsimple.html">past simple</a></li>
@@ -1174,10 +1257,10 @@
 }
 
 
-        /*function createSparkles() {
+        function createSparkles() {
             for (let i = 0; i < 10; i++) {
                 const sparkle = document.createElement('div');
-           /*     sparkle.innerHTML = '✨'; 
+               sparkle.innerHTML = '✨'; 
                 sparkle.style.cssText = `
                     position: fixed;
                     font-size: 20px;
@@ -1185,13 +1268,13 @@
                     z-index: 1000;
                     left: ${Math.random() * window.innerWidth}px;
                     top: ${Math.random() * window.innerHeight}px;
-                     
+                      animation: sparkle 2s ease-out forwards;
                 ` ; 
                 
                 document.body.appendChild(sparkle);
                 setTimeout(() => sparkle.remove(), 2000);
             }    
-        } */
+        } 
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1211,15 +1294,15 @@
             });
         });
 
-        // Add sparkle animation CSS
-       /* const style = document.createElement('style');
+         Add sparkle animation CSS
+        const style = document.createElement('style');
         style.textContent = `
             @keyframes sparkle {
                 0% { transform: scale(0) rotate(0deg); opacity: 1; }
                 50% { transform: scale(1) rotate(180deg); opacity: 1; }
                 100% { transform: scale(0) rotate(360deg); opacity: 0; }
             }
-        `; */
+        `; 
         document.head.appendChild(style);
 
         // Initialize
