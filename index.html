@@ -759,6 +759,15 @@
         height: 1em;
         margin-left: 5px;
     }
+
+    li button {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
     </style>
 </head>
 <body>
@@ -791,9 +800,12 @@
         </svg>
     </a>
     <ul>
-        <li><a href="#learn-numbers" onclick="setMode('numbers')">📚  Numbers</a></li> 
+        <li> <button onclick="setMode('numbers')">📚 Numbers</button></li>
+
+
         
-           <li class="mode-btn" id="shapesBtn" onclick="setMode('shapes')"> <a href="#test-numbers">🧪 Shapes</a></li>
+           <li class="mode-btn" id="shapesBtn" onclick="setMode('shapes')">🧪 Shapes</li>
+
             
         
         <li><a href="color.html">✏️ Colors</a></li>
@@ -1005,6 +1017,11 @@
                 svg: '<path d="M75,110 C75,110 25,70 25,45 C25,30 35,20 50,20 C60,20 70,25 75,35 C80,25 90,20 100,20 C115,20 125,30 125,45 C125,70 75,110 75,110 Z" fill="#fd79a8" />'
             }
         ];
+
+
+        
+
+
 
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
@@ -1242,7 +1259,9 @@
                 toggle.classList.remove('active');
             }
         });
+    
      </script>
+    
 </body>
 </html>
 
