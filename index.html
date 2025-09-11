@@ -800,11 +800,11 @@
         </svg>
     </a>
     <ul>
-        <li> <button onclick="setMode('numbers')">📚 Numbers</button></li>
+        <li> <button type="button" onclick="setMode('numbers')">📚 Numbers</button></li>
 
 
         
-           <li class="mode-btn" id="shapesBtn" onclick="setMode('shapes')">🧪 Shapes</li>
+           <li> <button type="button" class="mode-btn" id="shapesBtn" onclick="setMode('shapes')">🧪 Shapes </button></li>
 
             
         
@@ -873,8 +873,8 @@
         <!-- Mode Toggle -->
         <div class="mode-toggle">
             <div class="mode-buttons">
-                <button class="mode-btn active" id="numbersBtn" onclick="setMode('numbers')">🔢 Numbers</button>
-                <button class="mode-btn" id="shapesBtn" onclick="setMode('shapes')">🔺 Shapes</button>
+                <button type="button"  class="mode-btn active" id="numbersBtn" onclick="setMode('numbers')">🔢 Numbers</button>
+                <button type="button" class="mode-btn" id="shapesBtn" onclick="setMode('shapes')">🔺 Shapes</button>
                 
             </div>
         </div>
@@ -902,24 +902,24 @@
 
         <!-- Controls -->
         <div class="controls">
-            <button class="control-btn btn-green" onclick="previousItem()" id="prevBtn">⬅️ Previous</button>
-            <button class="control-btn btn-green" onclick="nextItem()" id="nextBtn">Next ➡️</button>
-            <button class="control-btn btn-orange" onclick="randomItem()">🎲 Random</button>
-            <button class="control-btn btn-red" onclick="resetLearning()">🔄 Start Over</button>
+            <button type="button" class="control-btn btn-green" onclick="previousItem()" id="prevBtn">⬅️ Previous</button>
+            <button type="button" class="control-btn btn-green" onclick="nextItem()" id="nextBtn">Next ➡️</button>
+            <button type="button" class="control-btn btn-orange" onclick="randomItem()">🎲 Random</button>
+            <button type="button" class="control-btn btn-red" onclick="resetLearning()">🔄 Start Over</button>
         </div>
 
         <!-- Quick Jump Numbers -->
         <div class="quick-jump" id="numbers">
             <h3>🚀 Quick Jump - Numbers</h3>
             <div class="jump-buttons">
-                <button class="jump-btn" onclick="jumpToNumber(0)">0</button>
-                <button class="jump-btn" onclick="jumpToNumber(10)">10</button>
-                <button class="jump-btn" onclick="jumpToNumber(25)">25</button>
-                <button class="jump-btn" onclick="jumpToNumber(50)">50</button>
-                <button class="jump-btn" onclick="jumpToNumber(100)">100</button>
-                <button class="jump-btn" onclick="jumpToNumber(200)">200</button>
-                <button class="jump-btn" onclick="jumpToNumber(500)">500</button>
-                <button class="jump-btn" onclick="jumpToNumber(1000)">1000</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(0)">0</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(10)">10</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(25)">25</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(50)">50</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(100)">100</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(200)">200</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(500)">500</button>
+                <button type="button" class="jump-btn" onclick="jumpToNumber(1000)">1000</button>
             </div>
         </div> 
 
@@ -927,14 +927,14 @@
         <div class="quick-jump" id="shapes">
             <h3>🎯 Quick Jump - Shapes</h3>
             <div class="jump-buttons">
-                <button class="jump-btn" onclick="jumpToShape(0)">Circle</button>
-                <button class="jump-btn" onclick="jumpToShape(1)">Square</button>
-                <button class="jump-btn" onclick="jumpToShape(2)">Triangle</button>
-                <button class="jump-btn" onclick="jumpToShape(3)">Rectangle</button>
-                <button class="jump-btn" onclick="jumpToShape(4)">Pentagon</button>
-                <button class="jump-btn" onclick="jumpToShape(5)">Hexagon</button>
-                <button class="jump-btn" onclick="jumpToShape(6)">Star</button>
-                <button class="jump-btn" onclick="jumpToShape(7)">Heart</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(0)">Circle</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(1)">Square</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(2)">Triangle</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(3)">Rectangle</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(4)">Pentagon</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(5)">Hexagon</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(6)">Star</button>
+                <button type="button" class="jump-btn" onclick="jumpToShape(7)">Heart</button>
             </div>
         </div>
 
