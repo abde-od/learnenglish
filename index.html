@@ -230,35 +230,31 @@
   .nav-links {
     display: none;
     flex-direction: column;
+    background-color: #fff;
     position: absolute;
     top: 60px;
     right: 0;
-    background-color: white;
     border: 1px solid #ccc;
-    padding: 15px;
     width: 100%; /* ✅ العرض كامل */
     max-height: 80vh; /* ✅ لتفادي تجاوز الشاشة */
-    overflow-y: auto; /* ✅ للتمرير إن كانت طويلة */
-    z-index: 1000;
+    overflow-y: auto;
   }
 
   .nav-links.active {
     display: flex;
   }
 
-  .nav-links li ul {
-    position: static;
-    border: none;
-    padding-left: 15px;
-    margin-top: 5px;
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
   }
 
-  .nav-links li.show-submenu ul {
-    display: block;
-  }
-
-  .nav-links > li > a {
-    justify-content: space-between;
+  .mobile-menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px 0;
   }
 }
 
@@ -275,7 +271,7 @@
 
     <nav class="nav">
         <div class="nav-container">
-            <div class="logo" onclick="scrollToTop()">🌟 Kids Learning</div>
+            <div class="logo" onclick="scrollToTop()">🌟 Kids Learning </div>
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
             <ul class="nav-links" id="navLinks">
                 <li>
@@ -334,13 +330,13 @@
 
     <div class="container">
         <div class="header">
-            <h1>🌟 Kids Learning Adventure!</h1>
+            <h1>🌟 Kids Learning Adventure! </h1>
             <p>Learn numbers from 0 to 1000 and discover amazing shapes!</p>
         </div>
 
         <div class="mode-toggle">
             <div class="mode-buttons">
-                <button class="mode-btn active" id="numbersBtn" onclick="setMode('numbers')">🔢 Numbers</button>
+                <button class="mode-btn active" id="numbersBtn" onclick="setMode('numbers')">🔢 Numbers </button>
                 <button class="mode-btn" id="shapesBtn" onclick="setMode('shapes')">🔺 Shapes</button>
             </div>
         </div>
