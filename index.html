@@ -250,6 +250,9 @@
 
   .nav-links.active {
     display: flex;
+    flex-direction: column;
+  max-height: 80vh;    /* 👈 ضروري */
+  overflow-y: auto;
   }
 
   .mobile-menu-toggle {
