@@ -213,6 +213,48 @@
 
         /* Prevent background scroll when sidebar open */
         body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
+
+
+
+
+                /*in smart phone */
+
+        /* إخفاء القائمة في الشاشات الصغيرة */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    border: 1px solid #ccc;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .mobile-menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px 0;
+  }
+}
     </style>
 </head>
 <body>
@@ -242,10 +284,10 @@
                         <li><a href="animals.html">🐈 Animals </a></li>
                         <li><a href="jobs.html">👨‍🔧 jobs </a></li>
                         <li><a href="seasons.html">🍂 seasons </a></li>
-                        <li><a href="clothes.html">🚖 Clothes </a></li>
-                        <li><a href="vegetables.html">🚖 vegetables </a></li>
-                        <li><a href="fruits.html">🚖 fruits </a></li>
-                        <li><a href="countries.html">🚖 countries </a></li>
+                        <li><a href="clothes.html">👗 Clothes </a></li>
+                        <li><a href="vegetables.html">🍆 vegetables </a></li>
+                        <li><a href="fruits.html">🍎 fruits </a></li>
+                        <li><a href="countries.html">🌍 countries </a></li>
                     </ul>
                 </li>
                 <li>
@@ -256,7 +298,7 @@
                     </a>
                     <ul>
                         <li><a href="presentsimple.html">present simple</a></li>
-                        <li><a href="present_continues.html">🎨  present Continuous</a></li>
+                        <li><a href="present_continues.html"> present Continuous</a></li>
                         <li><a href="present_perfect.html">present perfect</a></li>
                         <li><a href="pastsimple.html">past simple</a></li>
                         <li><a href="past_continue.html">past Continuous</a></li>
@@ -377,13 +419,7 @@
             { name: 'heart', svg: '<path d="M75,110 C75,110 25,70 25,45 C25,30 35,20 50,20 C60,20 70,25 75,35 C80,25 90,20 100,20 C115,20 125,30 125,45 C125,70 75,110 75,110 Z" fill="#fd79a8" />' }
         ];
 
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.toggle('active');
-            toggle.classList.toggle('active');
-            document.body.classList.toggle('no-scroll', navLinks.classList.contains('active'));
-        }
+       
 
         function numberToWords(num) {
             if (num === 0) return "zero";
@@ -507,6 +543,26 @@
                 navLinks.classList.remove('active'); toggle.classList.remove('active'); document.body.classList.remove('no-scroll');
             }
         });
+
+
+
+         /*nav link in smart phone */
+
+
+         function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    navLinks.classList.toggle('active');
+    toggle.classList.toggle('active');
+    document.body.classList.toggle('no-scroll', navLinks.classList.contains('active'));
+}
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    
+
+
     </script>
 </body>
 </html>
