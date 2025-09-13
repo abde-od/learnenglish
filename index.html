@@ -232,15 +232,16 @@
     flex-direction: column;
     background-color: #fff;
     position: absolute;
-    top: 70%;
+    top: 60%;
     right: 0;
     border: 1px solid #ccc;
     width: 100%; /* ✅ العرض كامل */
-    max-height: 90vh; /* ✅ لتفادي تجاوز الشاشة */
+   /* max-height: 90vh;  ✅ لتفادي تجاوز الشاشة */
     overflow-y: auto;
     z-index: 1000;
      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
      padding: 15 px;
+     height: 70%;
      
   }
 
@@ -275,7 +276,7 @@
 
     <nav class="nav">
         <div class="nav-container">
-            <div class="logo" onclick="scrollToTop()">🌟 Kids Learning </div>
+            <div class="logo" onclick="scrollToTop()">🌟 English with Abde </div>
             <div class="mobile-menu-toggle" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
             <ul class="nav-links" id="navLinks">
                 <li>
