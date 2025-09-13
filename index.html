@@ -227,32 +227,33 @@
 }
 
 @media (max-width: 768px) {
-    .nav {
-                padding: 10px 15px;
-            }
+  .nav {
+    padding: 10px 15px;
+  }
+
+  .nav-container {
+    position: relative; /* ✅ ضروري لحساب top من هنا */
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     background-color: #fff;
     position: absolute;
-    top: 60%;
+    top: 60px; /* ✅ بدلًا من 60% */
     right: 0;
     border: 1px solid #ccc;
-    width: 100%; /* ✅ العرض كامل */
-    max-height: 500px;  /*✅ لتفادي تجاوز الشاشة */
-    overflow-y: auto;
+    width: 100%;
+    max-height: 80vh;     /* ✅ لا يتجاوز الشاشة */
+    overflow-y: auto;     /* ✅ يمكن التمرير */
     z-index: 1000;
-     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-     padding: 15 px;
-     height: 70%;
-     
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px;        /* ✅ تصحيح خطأ px */
   }
 
   .nav-links.active {
     display: flex;
     flex-direction: column;
-  max-height: 80vh;    /* 👈 ضروري */
-  overflow-y: auto;
   }
 
   .mobile-menu-toggle {
@@ -268,6 +269,7 @@
     margin: 4px 0;
   }
 }
+
 
     </style>
 </head>
