@@ -215,126 +215,87 @@
   gap: 20px;
 }
 
-@media (max-width: 768px) {
-    .nav {
-        padding: 12px 20px;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 20px 15px;
-        border-radius: 0 0 20px 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.4s ease-in-out;
-        gap: 10px;
-    }
-
-    .nav-links.active {
-        max-height: 1000px;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links > li {
-        width: 100%;
-        animation: fadeInDown 0.4s ease forwards;
-    }
-
-    .nav-links > li > a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 14px 20px;
-        color: #333;
-        background: rgba(255, 255, 255, 0.85);
-        border-radius: 12px;
-        font-weight: bold;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    .nav-links > li > a:hover {
-        background: rgba(78, 205, 196, 0.15);
-        transform: scale(1.02);
-    }
-
-    .nav-links li ul {
-        position: static;
-        transform: none;
-        background: rgba(255, 255, 255, 0.9);
-        margin-top: 10px;
-        border-radius: 12px;
-        padding: 10px;
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links li ul li {
-        margin: 5px 0;
-    }
-
-    .nav-links li ul li a {
-        padding: 10px 15px;
-        border-radius: 10px;
-        font-size: 0.95rem;
-        background: rgba(255,255,255,0.6);
-        color: #444;
-        display: block;
-    }
-
-    .nav-links li ul::before {
-        display: none;
-    }
-
-    .container {
-        padding: 90px 15px 30px;
-    }
-
-    .number-display {
-        font-size: 4rem;
-    }
-
-    .number-words,
-    .shape-name {
-        font-size: 2rem;
-    }
-
-    .controls {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .color-option {
-        width: 60px;
-        height: 60px;
-    }
-
-    /* ✨ Animation for list appearance */
-    @keyframes fadeInDown {
-        from {
-            opacity: 0;
-            transform: translateY(-10px);
+/* Enhanced Mobile Responsiveness for Navigation */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 10px 15px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links > li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .nav-links > li > a {
+                justify-content: center;
+                color: #333;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+            }
+            
+            .nav-links li ul {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.9);
+                margin-top: 10px;
+                border-radius: 15px;
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li ul::before {
+                display: none;
+            }
+            
+            .container {
+                padding: 80px 15px 20px;
+            }
+            
+            .number-display {
+                font-size: 4rem;
+            }
+            
+            .number-words, .shape-name {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .color-option {
+                width: 60px;
+                height: 60px;
+            }
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-}
 
 </style>
 
