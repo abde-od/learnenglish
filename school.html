@@ -184,86 +184,65 @@
         @keyframes rotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
         @keyframes rainbow { 0% { filter: hue-rotate(0); } 100% { filter: hue-rotate(360deg); } }
 
-   @media (max-width: 768px) {
-            .nav {
-                padding: 10px 15px;
-            }
-            
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
+  /* Mobile fixes: disable “unwanted transitions/animations” and make sidebar full-height scrollable */
+        @media (max-width: 768px) {
+            .nav { padding: 10px 15px; }
+            .mobile-menu-toggle { display: flex; }
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
+                position: fixed; top: 64px; /* approx nav height */
+                left: 0; right: 0; bottom: 0;
+                background: rgba(255,255,255,0.95);
                 backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 20px;
-                border-radius: 0 0 20px 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                transform: translateY(-20px);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
+                flex-direction: column; padding: 20px;
+                border-radius: 0 0 20px 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                transform: translateY(-20px); opacity: 0; visibility: hidden; transition: opacity 0.3s ease, transform 0.3s ease;
+                overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
             }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links > li {
-                margin: 10px 0;
-                width: 100%;
-            }
-            
-            .nav-links > li > a {
-                justify-content: center;
-                color: #333;
-                background: rgba(255, 255, 255, 0.8);
-                width: 100%;
-            }
-            
+            .nav-links.active { transform: translateY(0); opacity: 1; visibility: visible; }
+            .nav-links > li { margin: 10px 0; width: 100%; }
+            .nav-links > li > a { justify-content: center; color: #333; background: rgba(255,255,255,0.8); width: 100%; }
             .nav-links li ul {
-                position: static;
-                transform: none;
-                background: rgba(255, 255, 255, 0.9);
-                margin-top: 10px;
-                border-radius: 15px;
-                display: block;
-                opacity: 1;
-                visibility: visible;
+                position: static; transform: none; background: rgba(255,255,255,0.9);
+                margin-top: 10px; border-radius: 15px; display: block; opacity: 1; visibility: visible;
             }
-            
-            .nav-links li ul::before {
-                display: none;
-            }
-            
-            .container {
-                padding: 80px 15px 20px;
-            }
-            
-            .number-display {
-                font-size: 4rem;
-            }
-            
-            .number-words, .shape-name {
-                font-size: 2rem;
-            }
-            
-            .controls {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .color-option {
-                width: 60px;
-                height: 60px;
-            }
-        }  
+            .nav-links li ul::before { display: none; }
+            .container { padding: 80px 15px 20px; }
+            .number-display { font-size: 4rem; }
+            .number-words, .shape-name { font-size: 2rem; }
+            .controls { grid-template-columns: repeat(2, 1fr); }
+            .color-option { width: 60px; height: 60px; }
+            /* Disable heavy animations/transitions on touch devices to avoid unwanted motion */
+            .floating-shape, .shape, .nav-links > li > a::before { animation: none !important; transition: none !important; }
+        }
+
+        /* Arabic submenu styles kept */
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { position: relative; display: inline-block; padding: 10px; }
+        li ul {
+            display: none; position: absolute; background-color:#f9f9f9; min-width: 100px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; cursor: pointer;
+        }
+        li:hover ul { display: block; }
+        li ul li { display: block; padding: 8px; }
+        li ul li a { text-decoration: none; color: black; display: block; }
+        li ul li a:hover { background-color: black; color: white; }
+        .dropdown-arrow { width: 1em; height: 1em; margin-left: 5px; }
+
+        /* Prevent background scroll when sidebar open */
+        body.no-scroll { overflow: hidden; position: fixed; width: 100%; }
+
+
+
+
+                /*in smart phone */
+
+        /* إخفاء القائمة في الشاشات الصغيرة */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
 </style>
 <body class="bg-gradient-to-br from-theme-light to-white text-gray-800 font-sans">
 
