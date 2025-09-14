@@ -401,6 +401,21 @@
                 </li>
             </ul>
         </div>
+
+        <script type="text/javascript">
+          
+          function toggleMobileMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    navLinks.classList.toggle('active');
+    toggle.classList.toggle('active');
+    document.body.classList.toggle('no-scroll', navLinks.classList.contains('active'));
+}
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        </script>
     </nav>
   <header class="bg-theme-light py-10 text-center">
     <div class="container mx-auto px-4">
@@ -584,17 +599,7 @@
 
 
 
-    function toggleMobileMenu() {
-    const navLinks = document.getElementById('navLinks');
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    navLinks.classList.toggle('active');
-    toggle.classList.toggle('active');
-    document.body.classList.toggle('no-scroll', navLinks.classList.contains('active'));
-}
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+    
   </script>
 </body>
 </html>
