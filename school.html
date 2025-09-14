@@ -217,85 +217,49 @@
 
 /* Enhanced Mobile Responsiveness for Navigation */
 @media (max-width: 768px) {
-            .nav {
-                padding: 10px 15px;
-            }
-            
-            .mobile-menu-toggle {
-                display: flex;
-            }
-            
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 20px;
-                border-radius: 0 0 20px 20px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-                transform: translateY(-20px);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links > li {
-                margin: 10px 0;
-                width: 100%;
-            }
-            
-            .nav-links > li > a {
-                justify-content: center;
-                color: #333;
-                background: rgba(255, 255, 255, 0.8);
-                width: 100%;
-            }
-            
-            .nav-links li ul {
-                position: static;
-                transform: none;
-                background: rgba(255, 255, 255, 0.9);
-                margin-top: 10px;
-                border-radius: 15px;
-                display: block;
-                opacity: 1;
-                visibility: visible;
-            }
-            
-            .nav-links li ul::before {
-                display: none;
-            }
-            
-            .container {
-                padding: 80px 15px 20px;
-            }
-            
-            .number-display {
-                font-size: 4rem;
-            }
-            
-            .number-words, .shape-name {
-                font-size: 2rem;
-            }
-            
-            .controls {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .color-option {
-                width: 60px;
-                height: 60px;
-            }
-        }
+  .nav {
+    padding: 10px 15px;
+  }
+
+  .nav-container {
+    position: relative; /* ✅ ضروري لحساب top من هنا */
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 60px; /* ✅ بدلًا من 60% */
+    right: 0;
+    border: 1px solid #ccc;
+    width: 100%;
+    max-height: 80vh;     /* ✅ لا يتجاوز الشاشة */
+    overflow-y: auto;     /* ✅ يمكن التمرير */
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 15px;        /* ✅ تصحيح خطأ px */
+  }
+
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .mobile-menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background-color: #333;
+    margin: 4px 0;
+  }
+}
+
 
 
 
@@ -320,7 +284,7 @@
                     </a>
                     <ul>
                         <li><a href="index.html" onclick="setMode('numbers')">🏠 Home</a></li>
-                        <li class="mode-btn" id="shapesBtn" onclick="setMode('shapes')"><a href="#test-numbers">📚  Numbers &🧪 Shapes</a></li>
+                        <li class="mode-btn" id="shapesBtn" onclick="setMode('shapes')"><a href="index.html">📚  Numbers &🧪 Shapes</a></li>
                         <li><a href="color.html">✏️ Colors</a></li>
                         <li><a href="animals.html">🐈 Animals </a></li>
                         <li><a href="jobs.html">👨‍🔧 jobs </a></li>
