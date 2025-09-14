@@ -24,95 +24,87 @@
 <style type="text/css">
 
 
-@media (max-width: 768px) {
-    .nav {
-        padding: 10px 15px;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 64px;
-        left: 0;
-        right: 0;
-        bottom: 0; /* هذا يعطيها الطول الكامل */
-        background: rgba(255,255,255,0.95);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        padding: 20px;
-        border-radius: 0 0 20px 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        transform: translateY(-20px);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        overscroll-behavior: contain;
-    }
-
-    .nav-links.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links > li {
-        margin: 10px 0;
-        width: 100%;
-    }
-
-    .nav-links > li > a {
-        justify-content: center;
-        color: #333;
-        background: rgba(255,255,255,0.8);
-        width: 100%;
-    }
-
-    .nav-links li ul {
-        position: static;
-        transform: none;
-        background: rgba(255, 255, 255, 0.9);
-        margin-top: 10px;
-        border-radius: 15px;
-        display: block;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links li ul::before {
-        display: none;
-    }
-
-    .container {
-        padding: 80px 15px 20px;
-    }
-
-    .number-display {
-        font-size: 4rem;
-    }
-
-    .number-words, .shape-name {
-        font-size: 2rem;
-    }
-
-    .controls {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .color-option {
-        width: 60px;
-        height: 60px;
-    }
-
-    .floating-shape, .shape, .nav-links > li > a::before {
-        animation: none !important;
-        transition: none !important;
-    }
-}
+/* Enhanced Mobile Responsiveness for Navigation */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 10px 15px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links > li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .nav-links > li > a {
+                justify-content: center;
+                color: #333;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+            }
+            
+            .nav-links li ul {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.9);
+                margin-top: 10px;
+                border-radius: 15px;
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li ul::before {
+                display: none;
+            }
+            
+            .container {
+                padding: 80px 15px 20px;
+            }
+            
+            .number-display {
+                font-size: 4rem;
+            }
+            
+            .number-words, .shape-name {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .color-option {
+                width: 60px;
+                height: 60px;
+            }
+        }
 
 
 
