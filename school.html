@@ -216,131 +216,86 @@
 }
 
 /* Enhanced Mobile Responsiveness for Navigation */
-  @media (max-width: 768px) {
-    .nav {
-        padding: 10px 15px;
-    }
-
-    .mobile-menu-toggle {
-        display: flex;
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(30px) saturate(180%);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        flex-direction: column;
-        padding: 20px;
-        border-radius: 0 0 20px 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        visibility: hidden;
-        transition: max-height 0.5s ease, opacity 0.3s ease;
-        gap: 10px;
-    }
-
-    .nav-links.active {
-        max-height: 1000px;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .nav-links > li {
-        width: 100%;
-        animation: fadeInUp 0.5s ease forwards;
-        opacity: 0;
-        animation-delay: calc(0.05s * var(--i));
-    }
-
-    .nav-links > li > a {
-        justify-content: center;
-        color: #333;
-        background: rgba(255, 255, 255, 0.85);
-        width: 100%;
-        padding: 12px 18px;
-        border-radius: 12px;
-        font-weight: bold;
-        transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    .nav-links > li > a:hover {
-        background: rgba(78, 205, 196, 0.15);
-        transform: scale(1.02);
-    }
-
-    .nav-links > li > a:active {
-        transform: scale(0.98);
-        background-color: rgba(78, 205, 196, 0.25);
-    }
-
-    .nav-links li ul {
-        position: static;
-        transform: none;
-        background: rgba(255, 255, 255, 0.9);
-        margin-top: 10px;
-        border-radius: 15px;
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        padding: 10px;
-    }
-
-    .nav-links li ul li a {
-        padding: 10px 15px;
-        border-radius: 10px;
-        font-size: 0.95rem;
-        background: rgba(255, 255, 255, 0.6);
-        color: #444;
-        display: block;
-    }
-
-    .nav-links li ul::before {
-        display: none;
-    }
-
-    .container {
-        padding: 80px 15px 20px;
-    }
-
-    .number-display {
-        font-size: 4rem;
-    }
-
-    .number-words, .shape-name {
-        font-size: 2rem;
-    }
-
-    .controls {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .color-option {
-        width: 60px;
-        height: 60px;
-    }
-
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
+@media (max-width: 768px) {
+            .nav {
+                padding: 10px 15px;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 20px;
+                border-radius: 0 0 20px 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+                transform: translateY(-20px);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links > li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .nav-links > li > a {
+                justify-content: center;
+                color: #333;
+                background: rgba(255, 255, 255, 0.8);
+                width: 100%;
+            }
+            
+            .nav-links li ul {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.9);
+                margin-top: 10px;
+                border-radius: 15px;
+                display: block;
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li ul::before {
+                display: none;
+            }
+            
+            .container {
+                padding: 80px 15px 20px;
+            }
+            
+            .number-display {
+                font-size: 4rem;
+            }
+            
+            .number-words, .shape-name {
+                font-size: 2rem;
+            }
+            
+            .controls {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .color-option {
+                width: 60px;
+                height: 60px;
+            }
         }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .no-scroll {
-        overflow: hidden;
-        height: 100vh;
-    }
-}
 
 
 
@@ -364,7 +319,7 @@
                         </svg>
                     </a>
                     <ul>
-                        <li><a href="#learn-numbers" onclick="setMode('numbers')">🏠 Home</a></li>
+                        <li><a href="index.html" onclick="setMode('numbers')">🏠 Home</a></li>
                         <li class="mode-btn" id="shapesBtn" onclick="setMode('shapes')"><a href="#test-numbers">📚  Numbers &🧪 Shapes</a></li>
                         <li><a href="color.html">✏️ Colors</a></li>
                         <li><a href="animals.html">🐈 Animals </a></li>
